@@ -34,7 +34,7 @@ Nous nous concentrons sur les clients Maroccain qui ont 20+ ans et besoin d'un *
 |Fonction|Gestion des Patients|
 |:------------------------------:|:-------------------------------------:|
 |Objectif                       |Ajouter, Modifier, Supprimer, et Afficher les patients|
-|Description                    |Une dashboard contient des actions a faire pour manager des patients.<br/>Un patient est défini par son nom, prénom, date de naissance et sa maladie.|
+|Description                    |Une dashboard contient des actions a faire pour manager des patients. Un patient est défini par son nom, prénom, date de naissance et sa maladie.|
 |Contraintes / règles de gestion|Seulement les Médecins et les secrétaires peut gérer des patients|
 |Niveau de priorité             |Priorité haute|
 
@@ -43,14 +43,14 @@ Nous nous concentrons sur les clients Maroccain qui ont 20+ ans et besoin d'un *
 |Fonction|Telecharger report des patients|
 |:------------------------------:|:-------------------------------------:|
 |Objectif                       |Sauvegarder tout les Patients|
-|Description                    |les Médecins et les secrétaires peut telecharger une CSV avec <br/>des information de toutes les patients|
+|Description                    |les Médecins et les secrétaires peut telecharger une CSV avec des information de toutes les patients|
 |Contraintes / règles de gestion|Seulement les Médecins et les secrétaires peut telecharger le report|
 |Niveau de priorité             |Priorité normal|
 
 |Fonction|Gestion des Médecins|
 |:------------------------------:|:-------------------------------------:|
 |Objectif                       |Ajouter, Modifier, Supprimer, et Afficher les Médecins|
-|Description                    |Une dashboard contient des actions a faire pour manager des médecins.<br/>Un Médecin est définie par son nom, prénom,date de naissance et sa spécialité.|
+|Description                    |Une dashboard contient des actions a faire pour manager des médecins. Un Médecin est définie par son nom, prénom,date de naissance et sa spécialité.|
 |Contraintes / règles de gestion|Seulement les Admins peut gérer des Médecins|
 |Niveau de priorité             |Priorité faible|
 
