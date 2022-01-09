@@ -20,7 +20,7 @@
     "comments": false
   },
   "scripts": {
-    "babel": "babel ./src/js/ --out-dir ./public/js/ --out-file-extension .min.js --watch --source-maps",
-    "build": "yarn babel && pug ./src/pug/ --out ./public/ -w -P"
+    "babel": "babel ./src/js/ --out-dir ./public/js/ --out-file-extension .min.js --source-maps",
+    "build:pug": "pug ./src/pug/ --out ./public/ -w -P"
   }
 }
