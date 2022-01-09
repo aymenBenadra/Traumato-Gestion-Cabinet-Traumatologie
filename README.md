@@ -9,13 +9,14 @@
   - [Technologies utilisé](#technologies-utilisé)
     - [Frontend](#frontend)
     - [Backend](#backend)
+  - [Planning](#planning)
   - [Deploiement](#deploiement)
 
 ## Contexte du projet
 
 Le docteur Rahbani Rafik est un traumatologue qui souhaite renforcer sa présence sur le web et informatiser la gestion de ses patients.
 
-Le besoin minimum est de réaliser une page publicitaire du cabinet, et une page de gestion des patients (Ajouter,Modifier,Supprimer, et afficher).
+Pour plus d'information aller au cahier des charges [ici](Cahier%20des%20charges/cdc.md)
 
 ## Objectif du projet
 
@@ -25,18 +26,26 @@ Nous voulons réaliser une site web pour renforcer la présence sur du docteur R
 
 ### Frontend
 
-- **Html**
-- **Pug**
-- **CSS**
-- **SASS**
-- **JavaScript**
+- **Pug** &rarr; *Html*
+- **SASS** &rarr; *CSS*
+- **JavaScript** + *JQuery*
 
 ### Backend
 
 - **PHP**
-- **SQL**
+- **SQL** + *MySQL*
+
+## Planning
+
+- Gantt Chart: [Teamgantt](https://prod.teamgantt.com/gantt/schedule/?ids=2927527&public_keys=pHfgvPgVU4G9&zoom=d120&font_size=12&col_width=455&documents=0&comments=0&estimated_hours=1&assigned_resources=1&percent_complete=1&hide_header_tabs=1&menu_view=0&resource_filter=1&name_in_bar=0&name_next_to_bar=0&resource_names=1#)
+  - Gantt Chart local versions:
+    - [08/01/2022](Planning/Gantt/gantt-8-1.pdf)
+- Trello Board: [Trello](https://trello.com/b/2wAe2cHY/traumato-gestion-cabinet-traomatologie)
+  - Trello Board local versions:
+    - [08/01/2022](Planning/Trello/trello-8-1.pdf)
 
 ## Deploiement
 
-- Design: [Figma](figma.com)
-- Site web: 
+- Design: [Figma](https://figma.com)
+- Site web: [Heroku](https://traumato.herokuapp.com)
+- Base de données: [Remote MySQL](https://remotemysql.com/)
