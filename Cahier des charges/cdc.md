@@ -33,28 +33,30 @@ Nous nous concentrons sur les clients Maroccain qui ont 20+ ans et besoin d'un *
 
 |Fonction|Gestion des Patients|
 |:------------------------------:|:-------------------------------------:|
-|Objectif                       |Ajouter, Modifier, Supprimer, |
-|Description                    |L'ouverture d'un masque est possible à travers un raccourci sur le bureau.<br/> Il comprend les informations suivantes : compte client, Nom du client, Nom <br/>du contact (...), etc.|
-|Contraintes / règles de gestion|Le service n'est valable que pour les clients,<br/> un mode dégradé sera prévu plus tard pour les prospects.<br/> La fiche ne peut être fermée que par son créateur, etc.|
+|Objectif                       |Ajouter, Modifier, Supprimer, et Afficher les patients|
+|Description                    |Une dashboard contient des actions a faire pour manager des patients.<br/>Un patient est défini par son nom, prénom, date de naissance et sa maladie.|
+|Contraintes / règles de gestion|Seulement les Médecins et les secrétaires peut gérer des patients|
 |Niveau de priorité             |Priorité haute|
 
 ### Sous Fonctions
 
-|Fonction|Telecharger report de patient|
+|Fonction|Telecharger report des patients|
 |:------------------------------:|:-------------------------------------:|
-|Objectif                       |222222222222222222222222<br/>2222222222222222|
-|Description                    |2|
-|Contraintes / règles de gestion|2|
-|Niveau de priorité             |2|
+|Objectif                       |Sauvegarder tout les Patients|
+|Description                    |les Médecins et les secrétaires peut telecharger une CSV avec <br/>des information de toutes les patients|
+|Contraintes / règles de gestion|Seulement les Médecins et les secrétaires peut telecharger le report|
+|Niveau de priorité             |Priorité normal|
 
-|Fonction|Gestion des Medecins|
+|Fonction|Gestion des Médecins|
 |:------------------------------:|:-------------------------------------:|
-|Objectif                       |2222222222222222222222<br/>222222222222222222|
-|Description                    |2|
-|Contraintes / règles de gestion|2|
-|Niveau de priorité             |2|
+|Objectif                       |Ajouter, Modifier, Supprimer, et Afficher les Médecins|
+|Description                    |Une dashboard contient des actions a faire pour manager des médecins.<br/>Un Médecin est définie par son nom, prénom,date de naissance et sa spécialité.|
+|Contraintes / règles de gestion|Seulement les Admins peut gérer des Médecins|
+|Niveau de priorité             |Priorité faible|
 
 ## Phases de projet (Delais)
+
+Pour plus d'information sur les phases et délais de projet aller au Tableau Gantt [ici](https://prod.teamgantt.com/gantt/schedule/?ids=2927527&public_keys=pHfgvPgVU4G9&zoom=d120&font_size=12&col_width=455&documents=0&comments=0&estimated_hours=1&assigned_resources=1&percent_complete=1&hide_header_tabs=1&menu_view=0&resource_filter=1&name_in_bar=0&name_next_to_bar=0&resource_names=1#)
 
 |Numéro|Nom de phase|Date du rendu|durée|
 |:---:|:---:|:---:|:---:|
@@ -68,8 +70,11 @@ Nous nous concentrons sur les clients Maroccain qui ont 20+ ans et besoin d'un *
 
 ## Livrables
 
-- Phase 1: **Initialisation**
-  - Un Cahier des Charges [Markdown]
+Pour plus d'information sur les levrables et les taches aller au Tableau Trello [ici](https://trello.com/b/2wAe2cHY/traumato-gestion-cabinet-traomatologie)
+
+- Phase 1: **Initialisation** [Markdown]
+  - Github Repo
+  - Un Cahier des Charges
   - Tableau Gantt
   - Tableau Trello
 - Phase 2: **Conception** [UML]
@@ -79,14 +84,22 @@ Nous nous concentrons sur les clients Maroccain qui ont 20+ ans et besoin d'un *
   - Diagramme d'Activité
 - Phase 3: **Maquettage** [Figma]
   - Charte graphique adéquat du site web
-  - Une *Wireframe*, *Maquette*, et *Prototype* du site web avec Figma
-- Phase 4: **Frontend**
-  - Page Home [Pug (Html), SCSS (CSS)]
-  - Page App [JavaScript (Regex), jQuery (Ajax)]
-- Phase 5: **Base de Données**
-  - Base de Données adéquant [SQL (MySQL)]
-- Phase 6: **Backend**
-  - Application backend accessible à la base de données [PHP]
-  - Api a consommer sur la partie Frontend
-- Phase 7: **Déploiement**
+  - Wireframe
+  - Maquette
+  - Prototype
+- Phase 4: **Frontend** [Pug (Html), SCSS (CSS), JavaScript (Regex), jQuery (Ajax)]
+  - Composants et page Template
+  - Page Home
+  - page Contact
+  - Page App
+- Phase 5: **Base de Données** [SQL (MySQL)]
+  - Base de Données
+  - Table Patient
+  - Table Médecin
+- Phase 6: **Backend** [PHP (PHPMailer)]
+  - Composant d’accès aux données
+  - Fonctionnalité page Contact
+  - Fonctionnalité page App
+- Phase 7: **Déploiement** [Heroku, RemoteMySQL]
+  - Déploiement de base de données
   - Déploiement de site web
