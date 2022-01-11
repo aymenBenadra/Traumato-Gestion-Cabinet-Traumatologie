@@ -1,6 +1,6 @@
 # Traumato: Gestion d'un Cabinet Traumatologie
 
-Pour plus d'information aller au cahier des charges [ici](./Cahier%20des%20charges/cdc.md)
+Pour plus d'information aller au cahier des charges [ici](./Cahier%20des%20charges/cdc.docx)
 
 ## Table de contenu
 
@@ -19,7 +19,7 @@ Pour plus d'information aller au cahier des charges [ici](./Cahier%20des%20charg
 
 Le docteur Rahbani Rafik est un traumatologue qui souhaite renforcer sa présence sur le web et informatiser la gestion de ses patients.
 
-Pour plus d'information aller au cahier des charges [ici](./Cahier%20des%20charges/cdc.md)
+Pour plus d'information aller au cahier des charges [ici](./Cahier%20des%20charges/cdc.docx)
 
 ## Objectif du projet
 
