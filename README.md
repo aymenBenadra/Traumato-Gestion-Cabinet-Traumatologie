@@ -44,10 +44,12 @@ Nous voulons réaliser une site web pour renforcer la présence sur du docteur R
   - Gantt Chart local versions:
     - [08/01/2022](./Planning/Gantt/gantt-8-1.pdf)
     - [09/01/2022](./Planning/Gantt/gantt-9-1.pdf)
+    - [10/01/2022](./Planning/Gantt/gantt-10-1.pdf)
 - Trello Board: [Trello](https://trello.com/b/2wAe2cHY/traumato-gestion-cabinet-traomatologie)
   - Trello Board local versions:
     - [08/01/2022](./Planning/Trello/trello-8-1.pdf)
     - [09/01/2022](./Planning/Trello/trello-9-1.pdf)
+    - [10/01/2022](./Planning/Trello/trello-10-1.pdf)
 
 ## Modelisation
 
