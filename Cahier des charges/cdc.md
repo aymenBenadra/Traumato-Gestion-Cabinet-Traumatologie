@@ -156,7 +156,7 @@ Pour plus d'information sur les levrables et les taches aller au Tableau Trello 
 - Phase 2: **Conception** [UML]
   - Diagramme de Cas d'utilisations
   - Diagramme de Classes
-  - Diagramme de Séquences
+  - Diagrammes de Séquences
 - Phase 3: **Maquettage** [Figma]
   - Charte graphique adéquat du site web
   - Wireframe
