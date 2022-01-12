@@ -1,5 +1,7 @@
 # Traumato: Gestion d'un Cabinet Traumatologie
 
+![Traumato](public/assets/logo.png)
+
 Pour plus d'information aller au cahier des charges [ici](./Cahier%20des%20charges/cdc.docx)
 
 ## Table de contenu
@@ -66,6 +68,6 @@ Nous voulons réaliser une site web pour renforcer la présence sur du docteur R
 
 ## Deploiement
 
-- Design: [Figma](https://figma.com)
-- Site web: [Heroku](https://traumato.herokuapp.com)
-- Base de données: [Remote MySQL](https://remotemysql.com/)
+- Design: [Figma](https://www.figma.com/file/7e57saMxBWCRzmXiFteado/Traumato---Gestion-Cabinet-Traumatologie?node-id=0%3A1)
+- ~~Site web: [Heroku](https://traumato.herokuapp.com)~~
+- ~~Base de données: [Remote MySQL](https://remotemysql.com/)~~
