@@ -12,7 +12,8 @@
     "babel-preset-minify": "^0.5.1",
     "eslint": "^8.6.0",
     "eslint-config-prettier": "^8.3.0",
-    "eslint-plugin-prettier": "^4.0.0"
+    "eslint-plugin-prettier": "^4.0.0",
+    "pug-cli2": "^1.0.0-alpha6.1"
   },
   "babel": {
     "presets": [
