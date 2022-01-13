@@ -33,7 +33,7 @@ Nous voulons réaliser une site web pour renforcer la présence sur du docteur R
 
 - **Pug** &rarr; *Html*
 - **SASS** &rarr; *CSS*
-- **JavaScript** + *JQuery*
+- **JavaScript** + *Regex* + *JQuery*(Ajax)
 
 ### Backend
 
