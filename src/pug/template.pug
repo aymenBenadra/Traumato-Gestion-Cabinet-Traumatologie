@@ -6,12 +6,23 @@ html(lang='en')
         meta(name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no')
         link(rel='stylesheet' href='./css/style.min.css')
 
-        include ./partials/favicon.pug
-        include ./partials/seo.pug
+        //- Favicon
+        include ./_partials/favicon.pug
+        //- Seo
+        include ./_partials/seo.pug
     body
-        include ./partials/header.pug
-        main
-            block content
-        include ./partials/footer.pug
+        //- Header
+        include ./_partials/header.pug
+        //- Hero
+        include ./_partials/hero.pug
+        //- Location Cabinet
+        include ./_partials/location.pug
+        //- Contact
+        include ./_partials/contact.pug
+        //- Footer
+        include ./_partials/footer.pug
 
+        //- Scripts
         block scripts
+            // map script
+            script(src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap&libraries=&v=weekly" async)
