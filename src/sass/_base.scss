@@ -1,0 +1,18 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Mulish:wght@400;500;600;700&display=swap");
+
+$font-montserrat: "Montserrat", sans-serif;
+$font-mulish: "Mulish", sans-serif;
+
+$color-primary: #23a6f0;
+$color-text: #252b42;
+$color-text-second: #737373;
+$color-disabled-element: #8ec2f2;
+$color-green: #29cc97;
+$color-red: #f12b2c;
+$color-sidebar-links: #a4a6b3;
+$color-light: #ffffff;
+
+body {
+  font-family: $font-montserrat;
+  scroll-behavior: smooth;
+}
