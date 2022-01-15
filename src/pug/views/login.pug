@@ -2,6 +2,7 @@ extends _template.pug
 
 block content
     .container 
+        button.btn.btn--secondary.btn--float(type="button") Revien au page Home
         .card
             .card__header
                 img.card__logo(src="./assets/logo.png", alt="Traumato Logo")
@@ -22,7 +23,6 @@ block content
                         label.form__label(for="password") Password
                         input.form__input(type="password" id="password" name="password" required)
                     button.btn.btn--primary(type="submit") Log in
-                    button.btn.btn--secondary(type="button") Revien au page Home
                 
 block scripts
     script(src="./assets/js/login.js")

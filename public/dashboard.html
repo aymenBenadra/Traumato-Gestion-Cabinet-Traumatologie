@@ -53,14 +53,16 @@
         </div>
       </div>
       <main class="main"> 
-        <header class="main__header"> 
+        <div class="main__header"> 
           <h2 class="main__title">Patients</h2>
-          <h4 class="main__user"> <span class="main__devider">| </span><span class="main__user-name" id="username">John Doe</span></h4>
-        </header>
+          <h4 class="main__user"> <span class="main__devider">| </span><span class="main__username" id="username">John Doe</span></h4>
+        </div>
         <div class="main__content">
           <div class="main__content-header">
             <h3 class="main__subtitle">Tous les Patients </h3>
-            <button class="btn btn--primary btn--add-patient">+ Ajouter Patient</button>
+            <button class="btn btn--primary">
+              <ion-icon name="add-circle-outline"></ion-icon>Ajouter Patient
+            </button>
           </div>
           <div class="main__content-body"></div>
           <table class="main__table">
@@ -88,170 +90,6 @@
           </table>
         </div>
       </main>
-            <div class="card" id="creation-patient">
-              <div class="card__header">
-                <h3 class="card__title">Crée Patient</h3>
-              </div>
-              <div class="card__form">
-                <form class="form">
-                  <div class="form__group--half">
-                    <label class="form__label" for="nom">Nom *</label>
-                    <input class="form__input" type="text" id="nom" name="nom" required>
-                  </div>
-                  <div class="form__group--half">
-                    <label class="form__label" for="prenom">Prénom *</label>
-                    <input class="form__input" type="text" id="prenom" name="prenom" required>
-                  </div>
-                  <div class="form__group">
-                    <label class="form__label" for="tele">Téléphone *</label>
-                    <input class="form__input" type="text" id="tele" name="tele" required>
-                  </div>
-                  <div class="form__group">
-                    <label class="form__label" for="email">Email *</label>
-                    <input class="form__input" type="email" id="email" name="email" required>
-                  </div>
-                  <div class="form__group">
-                    <label class="form__label" for="date">Date de Naissance *</label>
-                    <input class="form__input" type="date" id="date" name="dn" required>
-                  </div>
-                  <div class="form__group">
-                    <label class="form__label" for="maladie">Maladie *</label>
-                    <select class="form__select" id="maladie" name="maladie" required> 
-                      <option value="tspt">TSPT</option>
-                      <option value="camh">CAMH</option>
-                      <option value="spt">SPT</option>
-                      <option value="autre">Autre</option>
-                    </select>
-                  </div>
-                  <div class="form__group">
-                    <label class="form__label" for="rdv">Date de Rendez-vous *</label>
-                    <input class="form__input" type="date" id="rdv" name="rdv" required>
-                  </div>
-                  <button class="btn btn--primary" type="submit"><span class="btn__text">Crée</span></button>
-                </form>
-              </div>
-            </div>
-            <div class="card" id="modification-patient">
-              <div class="card__header">
-                <h3 class="card__title">Modifier Patient</h3>
-              </div>
-              <div class="card__form">
-                <form class="form">
-                  <div class="form__group--half">
-                    <label class="form__label" for="nom">Nom *</label>
-                    <input class="form__input" type="text" id="nom" name="nom" required>
-                  </div>
-                  <div class="form__group--half">
-                    <label class="form__label" for="prenom">Prénom *</label>
-                    <input class="form__input" type="text" id="prenom" name="prenom" required>
-                  </div>
-                  <div class="form__group">
-                    <label class="form__label" for="tele">Téléphone *</label>
-                    <input class="form__input" type="text" id="tele" name="tele" required>
-                  </div>
-                  <div class="form__group">
-                    <label class="form__label" for="email">Email *</label>
-                    <input class="form__input" type="email" id="email" name="email" required>
-                  </div>
-                  <div class="form__group">
-                    <label class="form__label" for="date">Date de Naissance *</label>
-                    <input class="form__input" type="date" id="date" name="dn" required>
-                  </div>
-                  <div class="form__group">
-                    <label class="form__label" for="maladie">Maladie *</label>
-                    <select class="form__select" id="maladie" name="maladie" required> 
-                      <option value="tspt">TSPT</option>
-                      <option value="camh">CAMH</option>
-                      <option value="spt">SPT</option>
-                      <option value="autre">Autre</option>
-                    </select>
-                  </div>
-                  <div class="form__group">
-                    <label class="form__label" for="rdv">Date de Rendez-vous *</label>
-                    <input class="form__input" type="date" id="rdv" name="rdv" required>
-                  </div>
-                  <button class="btn btn--primary" type="submit"><span class="btn__text">Modifier</span></button>
-                </form>
-              </div>
-            </div>
-            <div class="card" id="creation-medecin-modal">
-              <div class="card__header">
-                <h3 class="card__title">Crée Medecin</h3>
-              </div>
-              <div class="card__form">
-                <form class="form">
-                  <div class="form__group--half">
-                    <label class="form__label" for="nom">Nom *</label>
-                    <input class="form__input" type="text" id="nom" name="nom" required>
-                  </div>
-                  <div class="form__group--half">
-                    <label class="form__label" for="prenom">Prénom *</label>
-                    <input class="form__input" type="text" id="prenom" name="prenom" required>
-                  </div>
-                  <div class="form__group">
-                    <label class="form__label" for="tele">Téléphone *</label>
-                    <input class="form__input" type="text" id="tele" name="tele" required>
-                  </div>
-                  <div class="form__group">
-                    <label class="form__label" for="email">Email *</label>
-                    <input class="form__input" type="email" id="email" name="email" required>
-                  </div>
-                  <div class="form__group">
-                    <label class="form__label" for="date">Date de Naissance *</label>
-                    <input class="form__input" type="date" id="date" name="dn" required>
-                  </div>
-                  <div class="form__group">
-                    <label class="form__label" for="specialite">Specialité *</label>
-                    <select class="form__select" id="specialite" name="specialite" required> 
-                      <option value="tspt">TSPT</option>
-                      <option value="camh">CAMH</option>
-                      <option value="spt">SPT</option>
-                      <option value="autre">Autre</option>
-                    </select>
-                  </div>
-                  <button class="btn btn--primary" type="submit"><span class="btn__text">Crée</span></button>
-                </form>
-              </div>
-            </div>
-            <div class="card" id="modification-medecin">
-              <div class="card__header">
-                <h3 class="card__title">Modifier Medecin</h3>
-              </div>
-              <div class="card__form">
-                <form class="form">
-                  <div class="form__group--half">
-                    <label class="form__label" for="nom">Nom *</label>
-                    <input class="form__input" type="text" id="nom" name="nom" required>
-                  </div>
-                  <div class="form__group--half">
-                    <label class="form__label" for="prenom">Prénom *</label>
-                    <input class="form__input" type="text" id="prenom" name="prenom" required>
-                  </div>
-                  <div class="form__group">
-                    <label class="form__label" for="tele">Téléphone *</label>
-                    <input class="form__input" type="text" id="tele" name="tele" required>
-                  </div>
-                  <div class="form__group">
-                    <label class="form__label" for="email">Email *</label>
-                    <input class="form__input" type="email" id="email" name="email" required>
-                  </div>
-                  <div class="form__group">
-                    <label class="form__label" for="date">Date de Naissance *</label>
-                    <input class="form__input" type="date" id="date" name="dn" required>
-                  </div>
-                  <div class="form__group">
-                    <label class="form__label" for="specialite">Specialité *</label>
-                    <select class="form__select" id="specialite" name="specialite" required> 
-                      <option value="tspt">TSPT</option>
-                      <option value="camh">CAMH</option>
-                      <option value="spt">SPT</option>
-                      <option value="autre">Autre</option>
-                    </select>
-                  </div>
-                  <button class="btn btn--primary" type="submit"><span class="btn__text">Modifier</span></button>
-                </form>
-              </div>
-            </div>
     </div>
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>

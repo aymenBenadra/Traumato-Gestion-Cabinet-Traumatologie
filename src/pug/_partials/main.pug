@@ -1,13 +1,15 @@
 main.main 
-    header.main__header 
+    .main__header 
         h2.main__title Patients
         h4.main__user 
             span.main__devider | 
-            span#username.main__user-name John Doe
+            span#username.main__username John Doe
     .main__content
         .main__content-header
             h3.main__subtitle Tous les Patients 
-            button.btn.btn--primary.btn--add-patient + Ajouter Patient
+            button.btn.btn--primary
+                ion-icon(name="add-circle-outline")
+                | Ajouter Patient
         .main__content-body
         table.main__table
             thead.main__table-head
