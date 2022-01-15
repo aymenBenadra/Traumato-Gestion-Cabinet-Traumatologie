@@ -1,0 +1,18 @@
+extends _template.pug
+
+block content
+    //- Header
+    include ../_partials/header.pug
+    //- Hero
+    include ../_partials/hero.pug
+    //- Location Cabinet
+    include ../_partials/location.pug
+    //- Contact
+    include ../_partials/contact.pug
+    //- Footer
+    include ../_partials/footer.pug
+
+//- Scripts
+block scripts
+    // map script
+    script(src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap&libraries=&v=weekly" async)

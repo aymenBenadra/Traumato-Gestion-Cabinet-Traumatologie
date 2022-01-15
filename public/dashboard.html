@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="./css/style.min.css">
+    <!-- Favicon: src\pug\partials\favicon.pug-->
+    <link rel="apple-touch-icon" sizes="180x180" href="/public/assets/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/public/assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/public/assets/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/public/assets/favicon/site.webmanifest">
+    <link rel="mask-icon" href="/public/assets/favicon/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="shortcut icon" href="/public/assets/favicon/favicon.ico">
+    <meta name="msapplication-TileColor" content="#2d89ef">
+    <meta name="msapplication-config" content="/public/assets/favicon/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+    <!-- Primary Meta Tags-->
+    <title>Traumato - Cabinet Traumatologie</title>
+    <meta name="title" content="Traumato - Cabinet Traumatologie">
+    <meta name="description" content="Le docteur Rahbani Rafik est un traumatologue qui souhaite renforcer sa présence sur le web et informatiser la gestion de ses patients.">
+    <!-- Open Graph / Facebook-->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://metatags.io/">
+    <meta property="og:title" content="Traumato - Cabinet Traumatologie">
+    <meta property="og:description" content="Le docteur Rahbani Rafik est un traumatologue qui souhaite renforcer sa présence sur le web et informatiser la gestion de ses patients.">
+    <meta property="og:image" content="../assets/hero.jpg">
+    <!-- Twitter-->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://metatags.io/">
+    <meta property="twitter:title" content="Traumato - Cabinet Traumatologie">
+    <meta property="twitter:description" content="Le docteur Rahbani Rafik est un traumatologue qui souhaite renforcer sa présence sur le web et informatiser la gestion de ses patients.">
+    <meta property="twitter:image" content="../assets/hero.jpg">
+  </head>
+  <body>
+    <div class="container">
+      <div class="sidenav">
+        <div class="sidenav__header">
+          <div class="sidenav__logo"><img src="./assets/logo.png" alt="Traumato"></div>
+          <div class="sidenav__title">Traumato</div>
+        </div>
+        <div class="sidenav__menu">
+          <div class="sidenav__menu-item"><a href="#">
+              <ion-icon name="person-circle-outline"></ion-icon>Profile</a></div>
+          <div class="sidenav__menu-item"><a href="#">
+              <ion-icon name="people-outline"></ion-icon>Patients</a></div>
+          <div class="sidenav__menu-item"><a href="#">
+              <ion-icon name="calendar-outline"></ion-icon>Rendez-vous</a></div>
+          <div class="sidenav__menu-item"><a href="#">
+              <ion-icon name="people-circle-outline"></ion-icon>Medecins</a></div>
+          <div class="sidenav__menu-item"><a href="#">
+              <ion-icon name="log-out-outline"></ion-icon>Logout</a></div>
+        </div>
+      </div>
+      <main class="main"> 
+        <header class="main__header"> 
+          <h2 class="main__title">Patients</h2>
+          <h4 class="main__user"> <span class="main__devider">| </span><span class="main__user-name" id="username">John Doe</span></h4>
+        </header>
+        <div class="main__content">
+          <div class="main__content-header">
+            <h3 class="main__subtitle">Tous les Patients </h3>
+            <button class="btn btn--primary btn--add-patient">+ Ajouter Patient</button>
+          </div>
+          <div class="main__content-body"></div>
+          <table class="main__table">
+            <thead class="main__table-head">
+              <tr class="main__table-row">
+                <th>Nom Complete</th>
+                <th>Date de Naissance</th>
+                <th>Maladie</th>
+                <th>Date Rendez-vous</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody class="main__table-body">
+              <tr class="main__table-row">
+                <td>John Doe</td>
+                <td>May 26, 2019</td>
+                <td>TSPT</td>
+                <td>May 26, 2019</td>
+                <td> 
+                  <button class="btn btn--primary btn--edit" type="button" id="modifier">Modifier</button>
+                  <button class="btn btn--primary btn--delete" type="button" id="modifier">Supprimer</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </main>
+            <div class="card" id="creation-patient">
+              <div class="card__header">
+                <h3 class="card__title">Crée Patient</h3>
+              </div>
+              <div class="card__form">
+                <form class="form">
+                  <div class="form__group--half">
+                    <label class="form__label" for="nom">Nom *</label>
+                    <input class="form__input" type="text" id="nom" name="nom" required>
+                  </div>
+                  <div class="form__group--half">
+                    <label class="form__label" for="prenom">Prénom *</label>
+                    <input class="form__input" type="text" id="prenom" name="prenom" required>
+                  </div>
+                  <div class="form__group">
+                    <label class="form__label" for="tele">Téléphone *</label>
+                    <input class="form__input" type="text" id="tele" name="tele" required>
+                  </div>
+                  <div class="form__group">
+                    <label class="form__label" for="email">Email *</label>
+                    <input class="form__input" type="email" id="email" name="email" required>
+                  </div>
+                  <div class="form__group">
+                    <label class="form__label" for="date">Date de Naissance *</label>
+                    <input class="form__input" type="date" id="date" name="dn" required>
+                  </div>
+                  <div class="form__group">
+                    <label class="form__label" for="maladie">Maladie *</label>
+                    <select class="form__select" id="maladie" name="maladie" required> 
+                      <option value="tspt">TSPT</option>
+                      <option value="camh">CAMH</option>
+                      <option value="spt">SPT</option>
+                      <option value="autre">Autre</option>
+                    </select>
+                  </div>
+                  <div class="form__group">
+                    <label class="form__label" for="rdv">Date de Rendez-vous *</label>
+                    <input class="form__input" type="date" id="rdv" name="rdv" required>
+                  </div>
+                  <button class="btn btn--primary" type="submit"><span class="btn__text">Crée</span></button>
+                </form>
+              </div>
+            </div>
+            <div class="card" id="modification-patient">
+              <div class="card__header">
+                <h3 class="card__title">Modifier Patient</h3>
+              </div>
+              <div class="card__form">
+                <form class="form">
+                  <div class="form__group--half">
+                    <label class="form__label" for="nom">Nom *</label>
+                    <input class="form__input" type="text" id="nom" name="nom" required>
+                  </div>
+                  <div class="form__group--half">
+                    <label class="form__label" for="prenom">Prénom *</label>
+                    <input class="form__input" type="text" id="prenom" name="prenom" required>
+                  </div>
+                  <div class="form__group">
+                    <label class="form__label" for="tele">Téléphone *</label>
+                    <input class="form__input" type="text" id="tele" name="tele" required>
+                  </div>
+                  <div class="form__group">
+                    <label class="form__label" for="email">Email *</label>
+                    <input class="form__input" type="email" id="email" name="email" required>
+                  </div>
+                  <div class="form__group">
+                    <label class="form__label" for="date">Date de Naissance *</label>
+                    <input class="form__input" type="date" id="date" name="dn" required>
+                  </div>
+                  <div class="form__group">
+                    <label class="form__label" for="maladie">Maladie *</label>
+                    <select class="form__select" id="maladie" name="maladie" required> 
+                      <option value="tspt">TSPT</option>
+                      <option value="camh">CAMH</option>
+                      <option value="spt">SPT</option>
+                      <option value="autre">Autre</option>
+                    </select>
+                  </div>
+                  <div class="form__group">
+                    <label class="form__label" for="rdv">Date de Rendez-vous *</label>
+                    <input class="form__input" type="date" id="rdv" name="rdv" required>
+                  </div>
+                  <button class="btn btn--primary" type="submit"><span class="btn__text">Modifier</span></button>
+                </form>
+              </div>
+            </div>
+            <div class="card" id="creation-medecin-modal">
+              <div class="card__header">
+                <h3 class="card__title">Crée Medecin</h3>
+              </div>
+              <div class="card__form">
+                <form class="form">
+                  <div class="form__group--half">
+                    <label class="form__label" for="nom">Nom *</label>
+                    <input class="form__input" type="text" id="nom" name="nom" required>
+                  </div>
+                  <div class="form__group--half">
+                    <label class="form__label" for="prenom">Prénom *</label>
+                    <input class="form__input" type="text" id="prenom" name="prenom" required>
+                  </div>
+                  <div class="form__group">
+                    <label class="form__label" for="tele">Téléphone *</label>
+                    <input class="form__input" type="text" id="tele" name="tele" required>
+                  </div>
+                  <div class="form__group">
+                    <label class="form__label" for="email">Email *</label>
+                    <input class="form__input" type="email" id="email" name="email" required>
+                  </div>
+                  <div class="form__group">
+                    <label class="form__label" for="date">Date de Naissance *</label>
+                    <input class="form__input" type="date" id="date" name="dn" required>
+                  </div>
+                  <div class="form__group">
+                    <label class="form__label" for="specialite">Specialité *</label>
+                    <select class="form__select" id="specialite" name="specialite" required> 
+                      <option value="tspt">TSPT</option>
+                      <option value="camh">CAMH</option>
+                      <option value="spt">SPT</option>
+                      <option value="autre">Autre</option>
+                    </select>
+                  </div>
+                  <button class="btn btn--primary" type="submit"><span class="btn__text">Crée</span></button>
+                </form>
+              </div>
+            </div>
+            <div class="card" id="modification-medecin">
+              <div class="card__header">
+                <h3 class="card__title">Modifier Medecin</h3>
+              </div>
+              <div class="card__form">
+                <form class="form">
+                  <div class="form__group--half">
+                    <label class="form__label" for="nom">Nom *</label>
+                    <input class="form__input" type="text" id="nom" name="nom" required>
+                  </div>
+                  <div class="form__group--half">
+                    <label class="form__label" for="prenom">Prénom *</label>
+                    <input class="form__input" type="text" id="prenom" name="prenom" required>
+                  </div>
+                  <div class="form__group">
+                    <label class="form__label" for="tele">Téléphone *</label>
+                    <input class="form__input" type="text" id="tele" name="tele" required>
+                  </div>
+                  <div class="form__group">
+                    <label class="form__label" for="email">Email *</label>
+                    <input class="form__input" type="email" id="email" name="email" required>
+                  </div>
+                  <div class="form__group">
+                    <label class="form__label" for="date">Date de Naissance *</label>
+                    <input class="form__input" type="date" id="date" name="dn" required>
+                  </div>
+                  <div class="form__group">
+                    <label class="form__label" for="specialite">Specialité *</label>
+                    <select class="form__select" id="specialite" name="specialite" required> 
+                      <option value="tspt">TSPT</option>
+                      <option value="camh">CAMH</option>
+                      <option value="spt">SPT</option>
+                      <option value="autre">Autre</option>
+                    </select>
+                  </div>
+                  <button class="btn btn--primary" type="submit"><span class="btn__text">Modifier</span></button>
+                </form>
+              </div>
+            </div>
+    </div>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <!-- jquery-->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="./js/app.js"></script>
+  </body>
+</html>

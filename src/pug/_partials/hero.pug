@@ -1,13 +1,14 @@
 include ../_mixins/card.pug
 section.hero
     .hero__filter
-    .hero__left-content
-        h1.hero__title Traumato
-        p.hero__subtitle Traumato is a platform for connecting people with their dreams.
-        .hero__cta
-            button.btn.btn--secondary.btn--rounded(type="button")
-                span.btn__text Location Cabinet
-            button.btn.btn--primary.btn--rounded(type="button")
-                span.btn__text Contactez nous!
-    .hero__right-content
-        +card("Prenez Rendez-vous","patient","Crée Rendez-vous")
+    .hero__content
+        .hero__left-content
+            h1.hero__title Traumato
+            p.hero__subtitle Traumato is a platform for connecting people with their dreams.
+            .hero__cta
+                button.btn.btn--secondary.btn--rounded(type="button")
+                    span.btn__text Location Cabinet
+                button.btn.btn--primary.btn--rounded(type="button")
+                    span.btn__text Contactez nous!
+        .hero__right-content
+            +card("Prenez Rendez-vous","patient","Crée Rendez-vous", "creation-patient")

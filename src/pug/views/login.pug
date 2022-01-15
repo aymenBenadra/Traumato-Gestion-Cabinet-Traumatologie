@@ -1,0 +1,28 @@
+extends _template.pug
+
+block content
+    .container 
+        .card
+            .card__header
+                img.card__logo(src="./assets/logo.png", alt="Traumato Logo")
+                h3.card__brand Traumato
+                p.card__desc enterer votre username et mot de passe
+            .card__form
+                form.form
+                    fieldset.form__fieldset
+                        legend.form__legend Type de Compte
+                        input.form__input(type="radio", id="medecin", name="type", value="medecin" checked)
+                        label.form__label(for="medecin") Medecin
+                        input.form__input(type="radio", id="admin", name="type", value="admin" disabled)
+                        label.form__label(for="admin") Admin
+                    .form__group
+                        label.form__label(for="username") Username 
+                        input.form__group__input(type="text" id="username" name="username" required)
+                    .form__group
+                        label.form__label(for="password") Password
+                        input.form__input(type="password" id="password" name="password" required)
+                    button.btn.btn--primary(type="submit") Log in
+                    button.btn.btn--secondary(type="button") Revien au page Home
+                
+block scripts
+    script(src="./assets/js/login.js")
