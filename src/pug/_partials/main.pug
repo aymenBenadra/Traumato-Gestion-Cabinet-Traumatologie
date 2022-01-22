@@ -1,31 +1,34 @@
 main.main 
     .main__header 
         h2.main__title Patients
-        h4.main__user 
-            span.main__devider | 
-            span#username.main__username John Doe
+        form(action="php/logout.php", method="POST").main__user 
+                label(for="logout")#username.main__username
+                    | John Doe
+                button#logout.main__username-logout(type="submit" name="logout" value="logout")
+                    ion-icon(name="log-out-outline")
+
     .main__content
         .main__content-header
             h3.main__subtitle Tous les Patients 
-            button.btn.btn--primary
+            button.btn
                 ion-icon(name="add-circle-outline")
                 | Ajouter Patient
         .main__content-body
-        table.main__table
-            thead.main__table-head
-                tr.main__table-row
-                    th Nom Complete
-                    th Date de Naissance
-                    th Maladie
-                    th Date Rendez-vous
-                    th Action
-            tbody.main__table-body
-                tr.main__table-row
-                    td John Doe
-                    td May 26, 2019
-                    td TSPT
-                    td May 26, 2019
-                    td 
-                        button(type="button", id="modifier").btn.btn--primary.btn--edit Modifier
-                        button(type="button", id="modifier").btn.btn--primary.btn--delete Supprimer
+            table.main__table
+                thead.main__table-head
+                    tr.main__table-row
+                        th Nom Complete
+                        th Date de Naissance
+                        th Maladie
+                        th Date Rendez-vous
+                        th Action
+                tbody.main__table-body
+                    tr.main__table-row
+                        td John Doe
+                        td May 26, 2019
+                        td TSPT
+                        td May 26, 2019
+                        td 
+                            button(type="button", id="modifier").btn.btn--edit Modifier
+                            button(type="button", id="modifier").btn.btn--delete Supprimer
 

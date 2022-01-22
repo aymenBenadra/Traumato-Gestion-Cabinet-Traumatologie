@@ -1,7 +1,6 @@
 .sidenav
     .sidenav__header
-        .sidenav__logo
-            img(src="./assets/logo.png", alt="Traumato")
+        img.sidenav__logo(src="./assets/logo-light.png", alt="Traumato")
         .sidenav__title
             | Traumato
     .sidenav__menu
@@ -9,7 +8,7 @@
             a(href="#")
                 ion-icon(name="person-circle-outline")
                 | Profile
-        .sidenav__menu-item
+        .sidenav__menu-item.sidenav__menu-item--active
             a(href="#")
                 ion-icon(name="people-outline")
                 | Patients
@@ -17,11 +16,3 @@
             a(href="#")
                 ion-icon(name="calendar-outline")
                 | Rendez-vous
-        .sidenav__menu-item
-            a(href="#")
-                ion-icon(name="people-circle-outline")
-                | Medecins
-        .sidenav__menu-item
-            a(href="#")
-                ion-icon(name="log-out-outline")
-                | Logout

@@ -1,14 +1,16 @@
 extends _template.pug 
 
 block content
+    .
+        <?php
+            if(!isset($_SESSION['user'])){
+                header('Location: ./index.html');
+            }
+        ?>
     .container
         include ../_partials/sidenav.pug
         include ../_partials/main.pug
 
-block scripts 
+block append scripts 
     script(type='module' src='https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js')
     script(nomodule src='https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js')
-
-    // jquery
-    script(src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous")
-    script(src='./js/app.js')

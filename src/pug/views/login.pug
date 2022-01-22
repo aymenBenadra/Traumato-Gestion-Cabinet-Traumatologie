@@ -1,15 +1,49 @@
 extends _template.pug
 
 block content
-    .container 
-        button.btn.btn--secondary.btn--float(type="button") Revien au page Home
+    .
+        <?php
+            require "php/connexion.php";
+
+            session_start();
+
+            if ($_SERVER["REQUEST_METHOD"] == "POST") {
+                // username and password sent from form 
+                $role = mysqli_real_escape_string($conn, $_POST['role']);
+                $username = mysqli_real_escape_string($conn, $_POST['username']);
+                $password = mysqli_real_escape_string($conn, $_POST['password']);
+
+                $sql = "SELECT id FROM utilisateur WHERE role = '$role' and username = '$username' and password = '$password'";
+
+                $result = mysqli_query($conn, $sql);
+                $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
+
+                $count = mysqli_num_rows($result);
+
+                // If result matched $role, $username and $password, table row must be 1 row
+                if ($count == 1) {
+                    $_SESSION['user'] = $username;
+
+                    header("location: dashboard.php");
+                } else {
+                    $error = "Your Username or Password is invalid";
+                    echo $error;
+
+                    header("location: login.html");
+                }
+            }
+        ?>
+
+    section.login  
+        a(href="./index.html")
+            button.btn.btn--secondary.btn--float(type="button") &larr; Reteur à l'Accueil
         .card
             .card__header
                 img.card__logo(src="./assets/logo.png", alt="Traumato Logo")
                 h3.card__brand Traumato
                 p.card__desc enterer votre username et mot de passe
             .card__form
-                form.form
+                form#loginForm(action="", method="POST").form
                     fieldset.form__fieldset
                         legend.form__legend Type de Compte
                         input.form__input(type="radio", id="medecin", name="type", value="medecin" checked)
@@ -18,11 +52,8 @@ block content
                         label.form__label(for="admin") Admin
                     .form__group
                         label.form__label(for="username") Username 
-                        input.form__group__input(type="text" id="username" name="username" required)
+                        input.form__input(type="text" id="username" name="username" required)
                     .form__group
                         label.form__label(for="password") Password
                         input.form__input(type="password" id="password" name="password" required)
-                    button.btn.btn--primary(type="submit") Log in
-                
-block scripts
-    script(src="./assets/js/login.js")
+                    button.btn(type="submit") Log in

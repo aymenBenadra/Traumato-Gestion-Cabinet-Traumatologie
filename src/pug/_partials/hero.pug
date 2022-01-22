@@ -1,14 +1,47 @@
-include ../_mixins/card.pug
 section.hero
     .hero__filter
     .hero__content
         .hero__left-content
-            h1.hero__title Traumato
-            p.hero__subtitle Traumato is a platform for connecting people with their dreams.
+            h1.hero__title Meet the best Hospital
+            p.hero__subtitle We know how large objects will act, but things on a small scale.
             .hero__cta
-                button.btn.btn--secondary.btn--rounded(type="button")
-                    span.btn__text Location Cabinet
-                button.btn.btn--primary.btn--rounded(type="button")
-                    span.btn__text Contactez nous!
+                a(href="#location" class="link-active") 
+                    button.btn.btn--secondary(type="button") 
+                        | Location Cabinet
+                a(href="#contact") 
+                    button.btn(type="button") 
+                        | Contactez nous!
         .hero__right-content
-            +card("Prenez Rendez-vous","patient","Crée Rendez-vous", "creation-patient")
+            .card
+                .card__header
+                    h3.card__title Crée Patient
+                .card__form
+                    form(method="POST", action="php/reservation.php").form
+                        .form__group.form__group--field
+                            .form__group.form__group--half
+                                label.form__label(for="nom") Nom *
+                                input.form__input(type="text" id="nom" name="nom" required)
+                            .form__group.form__group--half
+                                label.form__label(for="prenom") Prénom *
+                                input.form__input(type="text" id="prenom" name="prenom" required)
+                        .form__group
+                            label.form__label(for="tele") Téléphone *
+                            input.form__input(type="text" id="tele" name="tele" required)
+                        .form__group
+                            label.form__label(for="email") Email *
+                            input.form__input(type="email" id="email" name="email" required)
+                        .form__group
+                            label.form__label(for="date") Date de Naissance *
+                            input.form__input(type="date" id="date" name="dn" required)
+                        .form__group
+                            label.form__label(for="maladie") Maladie *
+                            select.form__select(id="maladie" name="maladie" required) 
+                                option(value="tspt") TSPT
+                                option(value="camh") CAMH
+                                option(value="spt") SPT
+                                option(value="autre") Autre
+                        .form__group
+                            label.form__label(for="rdv") Date de Rendez-vous *
+                            input.form__input(type="date" id="rdv" name="rdv" required)
+                        .form__footer
+                            button.btn(type="submit", name="hero-form", value="submit") Crée

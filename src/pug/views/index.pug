@@ -9,10 +9,25 @@ block content
     include ../_partials/location.pug
     //- Contact
     include ../_partials/contact.pug
+
+    //- Contact PHP
+    .
+        <?php
+            if(isset($_POST['contact'])){
+                $nom = htmlspecialchars($_POST['nom']);
+                $email = htmlspecialchars($_POST['email']);
+                $message = htmlspecialchars($_POST['message']);
+
+                // Send mail 
+                mail("aymanbenadra16@gmail.com", "Traumato Contact Form", $message, "From: $email", "Reply-To: $email");
+            }
+        ?>
+
     //- Footer
     include ../_partials/footer.pug
 
 //- Scripts
-block scripts
+block append scripts
     // map script
-    script(src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap&libraries=&v=weekly" async)
+    // script(src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap&libraries=&v=weekly" async)
+    // script(src="./js/location.min.js") 
