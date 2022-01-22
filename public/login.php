@@ -79,8 +79,7 @@
             
                         header("location: dashboard.php");
                     } else {
-                        $error = "Your Username or Password is invalid";
-                        echo $error;
+                        echo "<script>alert('Username ou mot de passe incorrect!')</script>";
                     }
                 }
             ?>

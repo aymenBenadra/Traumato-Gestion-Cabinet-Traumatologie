@@ -8,5 +8,5 @@ if ($_POST['logout'] == "logout") {
     // destroy the session
     session_destroy();
 
-    header("location: login.html");
+    header("location: login.php");
 }
