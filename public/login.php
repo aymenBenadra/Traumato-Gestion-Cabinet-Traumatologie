@@ -66,11 +66,12 @@
             require "php/connexion.php";
             session_start();
             // username and password sent from form 
-            $role = mysqli_real_escape_string($conn, $_POST['role']);
+            //- $role = mysqli_real_escape_string($conn, $_POST['role']);
             $username = mysqli_real_escape_string($conn, $_POST['username']);
             $password = mysqli_real_escape_string($conn, $_POST['password']);
     
-            $sql = "SELECT id FROM utilisateur WHERE role = '$role' and username = '$username' and password = '$password'";
+            //- $sql = "SELECT id FROM utilisateur WHERE role = '$role' and username = '$username' and password = '$password'";
+            $sql = "SELECT id FROM utilisateur WHERE username = '$username' and password = '$password'";
     
             $result = mysqli_query($conn, $sql);
             $row = mysqli_fetch_array($result, MYSQLI_ASSOC);

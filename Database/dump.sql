@@ -30,3 +30,5 @@ CREATE TABLE RDV (
     utilisateur_id int not null,
     foreign key(utilisateur_id) references Utilisateur(id)
 );
+
+INSERT INTO utilisateur(username, password, two_fa, role, nom, prenom, email, telephone, date_naissance, specialite) VALUES ('aymenBenadra', 'aymben123', '', 'medecin', 'Benadra', 'Mohammed-Aymen', 'aymanbenadra16@gmail.com', '06XXXXXXXX', '2000-06-20', 'TSPT'), ('rahbani', 'rahbani123', '', 'medecin', 'Rahbani', 'Rafik', 'rahbani@gmail.com', '06XXXXXXXX', '1997-07-12', 'CAMH');
