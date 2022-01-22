@@ -57,35 +57,35 @@
               <label class="form__label" for="password">Password</label>
               <input class="form__input" type="password" id="password" name="password" required>
             </div>
-            <button class="btn" type="submit">Log in</button><?php
-                if ($_SERVER["REQUEST_METHOD"] == "POST") {
-                    require "php/connexion.php";
-                    session_start();
-                    // username and password sent from form 
-                    $role = mysqli_real_escape_string($conn, $_POST['role']);
-                    $username = mysqli_real_escape_string($conn, $_POST['username']);
-                    $password = mysqli_real_escape_string($conn, $_POST['password']);
-            
-                    $sql = "SELECT id FROM utilisateur WHERE role = '$role' and username = '$username' and password = '$password'";
-            
-                    $result = mysqli_query($conn, $sql);
-                    $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
-            
-                    $count = mysqli_num_rows($result);
-            
-                    // If result matched $role, $username and $password, table row must be 1 row
-                    if ($count == 1) {
-                        $_SESSION['user'] = $username;
-            
-                        header("location: dashboard.php");
-                    } else {
-                        echo "<script>alert('Username ou mot de passe incorrect!')</script>";
-                    }
-                }
-            ?>
+            <button class="btn" type="submit">Log in</button>
           </form>
         </div>
       </div>
-    </section>
+    </section><?php
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            require "php/connexion.php";
+            session_start();
+            // username and password sent from form 
+            $role = mysqli_real_escape_string($conn, $_POST['role']);
+            $username = mysqli_real_escape_string($conn, $_POST['username']);
+            $password = mysqli_real_escape_string($conn, $_POST['password']);
+    
+            $sql = "SELECT id FROM utilisateur WHERE role = '$role' and username = '$username' and password = '$password'";
+    
+            $result = mysqli_query($conn, $sql);
+            $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
+    
+            $count = mysqli_num_rows($result);
+    
+            // If result matched $role, $username and $password, table row must be 1 row
+            if ($count == 1) {
+                $_SESSION['user'] = $username;
+    
+                header("location: dashboard.php");
+            } else {
+                echo "<script>alert('Username ou mot de passe incorrect!')</script>";
+            }
+        }
+    ?>
   </body>
 </html>
