@@ -25,6 +25,7 @@
   },
   "scripts": {
     "babel": "babel ./src/js/ --out-dir ./public/js/ --out-file-extension .min.js --watch --source-maps",
-    "build:pug": "pug ./src/pug/views/ --out ./public/ -w -P"
+    "build:pug": "pug ./src/pug/views/ --out ./public/ -w -P -E php",
+    "copyPHP": "yes | cp -r ./src/php/ ./public/"
   }
 }
