@@ -33,7 +33,7 @@
     <meta property="twitter:image" content="../assets/hero.jpg">
   </head>
   <body>
-    <section class="login"> <a href="./index.html">
+    <section class="login"> <a href="./index.php">
         <button class="btn btn--secondary btn--float" type="button">&larr; Reteur à l'Accueil</button></a>
       <div class="card">
         <div class="card__header"><img class="card__logo" src="./assets/logo.png" alt="Traumato Logo">
