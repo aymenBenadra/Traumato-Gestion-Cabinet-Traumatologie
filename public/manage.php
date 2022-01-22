@@ -74,11 +74,12 @@
               <label class="form__label" for="rdv">Date de Rendez-vous *</label>
               <input class="form__input" type="date" id="rdv" name="rdv" required>
             </div>
-            <button class="btn btn--primary" type="button"><span class="btn__text">Crée</span></button>
+            <button class="btn" type="button">Crée</button>
           </form>
         </div>
       </div>
     </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="js/manage.js"></script>
   </body>
 </html>

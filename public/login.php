@@ -33,15 +33,47 @@
     <meta property="twitter:image" content="../assets/hero.jpg">
   </head>
   <body>
-    <div class="container"> 
-      <button class="btn btn--secondary btn--float" type="button">Revien au page Home</button>
+    <?php
+        require "php/connexion.php";
+    
+        session_start();
+    
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            // username and password sent from form 
+            $role = mysqli_real_escape_string($conn, $_POST['role']);
+            $username = mysqli_real_escape_string($conn, $_POST['username']);
+            $password = mysqli_real_escape_string($conn, $_POST['password']);
+    
+            $sql = "SELECT id FROM utilisateur WHERE role = '$role' and username = '$username' and password = '$password'";
+    
+            $result = mysqli_query($conn, $sql);
+            $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
+    
+            $count = mysqli_num_rows($result);
+    
+            // If result matched $role, $username and $password, table row must be 1 row
+            if ($count == 1) {
+                $_SESSION['user'] = $username;
+    
+                header("location: dashboard.php");
+            } else {
+                $error = "Your Username or Password is invalid";
+                echo $error;
+    
+                header("location: login.html");
+            }
+        }
+    ?>
+    
+    <section class="login"> <a href="./index.html">
+        <button class="btn btn--secondary btn--float" type="button">&larr; Reteur à l'Accueil</button></a>
       <div class="card">
         <div class="card__header"><img class="card__logo" src="./assets/logo.png" alt="Traumato Logo">
           <h3 class="card__brand">Traumato</h3>
           <p class="card__desc">enterer votre username et mot de passe</p>
         </div>
         <div class="card__form">
-          <form class="form">
+          <form class="form" id="loginForm" action="" method="POST">
             <fieldset class="form__fieldset">
               <legend class="form__legend">Type de Compte</legend>
               <input class="form__input" type="radio" id="medecin" name="type" value="medecin" checked>
@@ -51,17 +83,17 @@
             </fieldset>
             <div class="form__group">
               <label class="form__label" for="username">Username </label>
-              <input class="form__group__input" type="text" id="username" name="username" required>
+              <input class="form__input" type="text" id="username" name="username" required>
             </div>
             <div class="form__group">
               <label class="form__label" for="password">Password</label>
               <input class="form__input" type="password" id="password" name="password" required>
             </div>
-            <button class="btn btn--primary" type="submit">Log in</button>
+            <button class="btn" type="submit">Log in</button>
           </form>
         </div>
       </div>
-    </div>
-    <script src="./assets/js/login.js"></script>
+    </section>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
   </body>
 </html>
