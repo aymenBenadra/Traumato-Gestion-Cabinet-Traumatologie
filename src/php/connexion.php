@@ -1,7 +1,7 @@
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "";
+$servername = "eu-cdbr-west-02.cleardb.net";
+$username = "bb90f77c07ad0b";
+$password = "41755a11";
 $dbname = "Traumato";
 
 // Create connection
