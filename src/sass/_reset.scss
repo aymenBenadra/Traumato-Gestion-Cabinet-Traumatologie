@@ -9,15 +9,18 @@
   -webkit-font-smoothing: antialiased;
   text-size-adjust: none;
 
-  &::before, &::after {
+  &,
+  &::before,
+  &::after {
     box-sizing: border-box;
   }
 }
 
-ol, ul{
-    list-style: none;
+ol,
+ul {
+  list-style: none;
 }
 
-table{
-    border-collapse: collapse;
+table {
+  border-collapse: collapse;
 }

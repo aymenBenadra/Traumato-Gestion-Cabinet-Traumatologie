@@ -1,0 +1,358 @@
+.header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  width: 80vw;
+  margin: 10px 10vw;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #00000000;
+  z-index: 2;
+
+  &__brand {
+    display: flex;
+    align-items: center;
+  }
+  &__logo {
+    width: 40px;
+    height: 40px;
+  }
+  &__text {
+    font-size: 1.5rem;
+    color: #fff;
+    font-weight: bold;
+  }
+}
+
+.hero {
+  height: 100vh;
+  width: 100%;
+  background-image: url(../assets/hero.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  justify-content: space-evenly;
+  align-items: center;
+  z-index: 0;
+  position: relative;
+
+  &__left-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    width: 50%;
+    height: 50%;
+    color: #fff;
+    padding: 20px;
+    z-index: 1;
+  }
+
+  &__title {
+    font-size: 3rem;
+    color: $color-light;
+    font-weight: bolder;
+  }
+
+  &__subtitle {
+    font-size: 1.2rem;
+    color: $color-light;
+  }
+
+  &__filter {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: -1;
+  }
+
+  &__content {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 100%;
+    width: 80%;
+    margin: 0 auto;
+    background-color: #00000000;
+    z-index: 2;
+  }
+}
+
+.card {
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  border-radius: 0.5rem;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 2;
+  position: relative;
+  padding: 1rem;
+
+  &__logo {
+    width: 4rem;
+    height: 4rem;
+  }
+
+  &__title {
+    font-size: 1.5rem;
+    color: $color-text;
+    font-weight: bold;
+  }
+
+  &__subtitle {
+    font-size: 1.2rem;
+    color: $color-light;
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    margin: 0 auto;
+    background-color: #00000000;
+    z-index: 2;
+    margin: 1rem 2rem;
+  }
+}
+
+.location {
+  height: 100vh;
+  width: auto;
+  color: $color-text;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  text-align: center;
+
+  &__title {
+    font-size: 2.5rem;
+    color: $color-text;
+    font-weight: bold;
+  }
+
+  &__subtitle {
+    font-size: 1.2rem;
+    color: $color-text-second;
+  }
+
+  &__map {
+    width: 80%;
+    height: 60%;
+    background-image: url(../assets/map.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+  }
+}
+
+.contact {
+  height: 90vh;
+  width: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  text-align: center;
+  background-color: $color-text;
+  color: $color-light;
+
+  &__header {
+    width: 80%;
+  }
+
+  &__title {
+    font-size: 2.5rem;
+    font-weight: bold;
+  }
+
+  &__subtitle {
+    font-size: 1.2rem;
+  }
+
+  &__form {
+    color: $color-text;
+    font-weight: 600;
+  }
+}
+
+.footer {
+  height: 10vh;
+  width: auto;
+  text-align: center;
+  padding: 1rem;
+}
+
+.login {
+  height: 100vh;
+  width: auto;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: $color-text;
+  text-align: center;
+
+  .card {
+    width: fit-content;
+    height: fit-content;
+    padding: 2rem;
+  }
+}
+
+.container {
+  display: flex;
+
+  .sidenav {
+    width: 20%;
+    height: 100vh;
+    background-color: $color-text;
+    color: $color-light;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+
+    &__header {
+      width: 100%;
+      height: 20%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem;
+      text-align: left;
+    }
+
+    &__logo {
+      width: 93px;
+      height: 93px;
+    }
+
+    &__title {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: $color-text-second;
+    }
+
+    &__menu {
+      width: 100%;
+      height: 40%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      align-items: center;
+
+      &-item {
+        font-size: 1.2rem;
+        padding: 1rem;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        a {
+          ion-icon {
+            margin-right: 1rem;
+          }
+
+          color: $color-text-second;
+        }
+
+        &--active {
+          border-left: $color-light solid 0.3rem;
+          background-color: darken($color: $color-text, $amount: 10%);
+          a {
+            color: $color-light;
+          }
+        }
+
+        &:hover {
+          background-color: darken($color: $color-text, $amount: 10%);
+        }
+      }
+    }
+  }
+
+  .main {
+    width: 80%;
+    height: 100vh;
+    background-color: $color-main-bg;
+    color: $color-text;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    text-align: center;
+
+    &__header {
+      width: 90%;
+      height: 10%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      text-align: left;
+    }
+
+    &__title {
+      font-size: 2rem;
+      font-weight: bold;
+    }
+
+    &__user {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      width: 20%;
+      color: $color-text-second;
+
+      &name {
+        border-left: $color-text-second solid 0.2rem;
+        border-radius: 2px;
+        padding-left: 1rem;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        &-logout {
+          background-color: $color-main-bg;
+        }
+      }
+    }
+
+    &__content {
+      background-color: $color-light;
+      border-radius: 15px;
+      width: 90%;
+      height: 80%;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+      text-align: left;
+
+      &-header {
+        width: 100%;
+        height: 10%;
+        padding: 2rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        text-align: left;
+      }
+
+      &-body {
+        
+      }
+    }
+  }
+}

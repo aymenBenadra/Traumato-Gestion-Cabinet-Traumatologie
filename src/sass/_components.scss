@@ -2,6 +2,106 @@ a {
   text-decoration: none;
   color: #fff;
 }
+
 li {
   list-style: none;
+}
+
+.btn {
+  background-color: $color-primary;
+  border: 2px solid $color-primary;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem;
+  color: $color-light;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+
+  &:hover {
+    background-color: darken($color-primary, 10%);
+  }
+
+  &--secondary {
+    background-color: #00000000;
+    border: 2px solid $color-light;
+
+    &:hover {
+      background-color: $color-light;
+      color: $color-text;
+    }
+  }
+
+  &--edit {
+    background-color: $color-edit;
+    border: 2px solid $color-edit;
+
+    &:hover {
+      background-color: darken($color-edit, 10%);
+    }
+  }
+
+  &--delete {
+    background-color: $color-delete;
+    border: 2px solid $color-delete;
+
+    &:hover {
+      background-color: darken($color-delete, 10%);
+    }
+  }
+}
+
+.form {
+  &__group {
+    display: flex;
+    margin: 5px 0;
+    padding: 5px;
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+
+    &--field {
+      display: flex;
+      flex-direction: row;
+    }
+  }
+  &__fieldset {
+    border: none;
+    margin: 0;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-evenly;
+  }
+
+  &__select {
+    width: 100%;
+    height: auto;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1.2rem;
+  }
+
+  &__input,
+  &__textarea {
+    width: 100%;
+    height: auto;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1.2rem;
+  }
+
+  &__input[type="radio"]:checked + &__label {
+    color: $color-primary;
+    font-weight: bold;
+  }
+
+  &__group--half {
+    width: 50%;
+  }
+
+  &__footer {
+    display: flex;
+    place-content: center;
+  }
 }
