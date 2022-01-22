@@ -10,19 +10,6 @@ block content
     //- Contact
     include ../_partials/contact.pug
 
-    //- Contact PHP
-    .
-        <?php
-            if(isset($_POST['contact'])){
-                $nom = htmlspecialchars($_POST['nom']);
-                $email = htmlspecialchars($_POST['email']);
-                $message = htmlspecialchars($_POST['message']);
-
-                // Send mail 
-                mail("aymanbenadra16@gmail.com", "Traumato Contact Form", $message, "From: $email", "Reply-To: $email");
-            }
-        ?>
-
     //- Footer
     include ../_partials/footer.pug
 

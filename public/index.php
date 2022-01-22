@@ -36,7 +36,7 @@
     <header class="header">
       <div class="header__brand"> <img class="header__logo" src="./assets/logo-light.png" alt="Traumato">
         <h4 class="header__text">Traumato</h4>
-      </div><a href="./login.html"> 
+      </div><a href="./login.php"> 
         <button class="btn" id="loginBtn" type="button">Login &rarr;</button></a>
     </header>
     <section class="hero">
@@ -143,21 +143,25 @@
                 <button class="btn" type="submit" name="contact" value="submit">Envoyer</button>
               </div>
             </form>
-          </div>
+          </div><?php
+              if(isset($_POST['contact'])){
+                  $nom = htmlspecialchars($_POST['nom']);
+                  $email = htmlspecialchars($_POST['email']);
+                  $message = htmlspecialchars($_POST['message']);
+          
+                  // Send mail 
+                  if(mail("aymanbenadra16@gmail.com", "Traumato Contact Form", $message, "From: $email", "Reply-To: $email")){
+                      echo "<script>alert('Votre message a été envoyé avec succès!')</script>";
+                  }else{
+                      echo "<script>alert('Une erreur est survenue lors de l\'envoi du message!')</script>";
+                  }
+              }
+          ?>
+          
         </div>
       </div>
     </section>
-    <script src="./assets/js/contact.js"></script><?php
-        if(isset($_POST['contact'])){
-            $nom = htmlspecialchars($_POST['nom']);
-            $email = htmlspecialchars($_POST['email']);
-            $message = htmlspecialchars($_POST['message']);
-    
-            // Send mail 
-            mail("aymanbenadra16@gmail.com", "Traumato Contact Form", $message, "From: $email", "Reply-To: $email");
-        }
-    ?>
-    
+    <script src="./assets/js/contact.js"></script>
     <footer class="footer">
       <p class="footer__text">Made With ❤️ By Mohammed-Aymen Benadra<br>©Traumato - All rights reserved.</p>
     </footer>

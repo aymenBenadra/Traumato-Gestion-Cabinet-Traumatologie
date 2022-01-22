@@ -33,38 +33,6 @@
     <meta property="twitter:image" content="../assets/hero.jpg">
   </head>
   <body>
-    <?php
-        require "php/connexion.php";
-    
-        session_start();
-    
-        if ($_SERVER["REQUEST_METHOD"] == "POST") {
-            // username and password sent from form 
-            $role = mysqli_real_escape_string($conn, $_POST['role']);
-            $username = mysqli_real_escape_string($conn, $_POST['username']);
-            $password = mysqli_real_escape_string($conn, $_POST['password']);
-    
-            $sql = "SELECT id FROM utilisateur WHERE role = '$role' and username = '$username' and password = '$password'";
-    
-            $result = mysqli_query($conn, $sql);
-            $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
-    
-            $count = mysqli_num_rows($result);
-    
-            // If result matched $role, $username and $password, table row must be 1 row
-            if ($count == 1) {
-                $_SESSION['user'] = $username;
-    
-                header("location: dashboard.php");
-            } else {
-                $error = "Your Username or Password is invalid";
-                echo $error;
-    
-                header("location: login.html");
-            }
-        }
-    ?>
-    
     <section class="login"> <a href="./index.html">
         <button class="btn btn--secondary btn--float" type="button">&larr; Reteur à l'Accueil</button></a>
       <div class="card">
@@ -89,11 +57,36 @@
               <label class="form__label" for="password">Password</label>
               <input class="form__input" type="password" id="password" name="password" required>
             </div>
-            <button class="btn" type="submit">Log in</button>
+            <button class="btn" type="submit">Log in</button><?php
+                if ($_SERVER["REQUEST_METHOD"] == "POST") {
+                    require "php/connexion.php";
+                    session_start();
+                    // username and password sent from form 
+                    $role = mysqli_real_escape_string($conn, $_POST['role']);
+                    $username = mysqli_real_escape_string($conn, $_POST['username']);
+                    $password = mysqli_real_escape_string($conn, $_POST['password']);
+            
+                    $sql = "SELECT id FROM utilisateur WHERE role = '$role' and username = '$username' and password = '$password'";
+            
+                    $result = mysqli_query($conn, $sql);
+                    $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
+            
+                    $count = mysqli_num_rows($result);
+            
+                    // If result matched $role, $username and $password, table row must be 1 row
+                    if ($count == 1) {
+                        $_SESSION['user'] = $username;
+            
+                        header("location: dashboard.php");
+                    } else {
+                        $error = "Your Username or Password is invalid";
+                        echo $error;
+                    }
+                }
+            ?>
           </form>
         </div>
       </div>
     </section>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
   </body>
 </html>

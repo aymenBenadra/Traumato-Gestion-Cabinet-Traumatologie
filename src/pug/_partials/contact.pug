@@ -21,6 +21,22 @@ section#contact.contact
                             textarea.form__textarea(name="message", id="message", cols="30", rows="6" required)
                     .form__footer
                         button.btn(type="submit", name="contact", value="submit") Envoyer
+                    //- Contact PHP
+            .
+                <?php
+                    if(isset($_POST['contact'])){
+                        $nom = htmlspecialchars($_POST['nom']);
+                        $email = htmlspecialchars($_POST['email']);
+                        $message = htmlspecialchars($_POST['message']);
+
+                        // Send mail 
+                        if(mail("aymanbenadra16@gmail.com", "Traumato Contact Form", $message, "From: $email", "Reply-To: $email")){
+                            echo "<script>alert('Votre message a été envoyé avec succès!')</script>";
+                        }else{
+                            echo "<script>alert('Une erreur est survenue lors de l\'envoi du message!')</script>";
+                        }
+                    }
+                ?>
 
 block scripts
     script(src="./assets/js/contact.js")
