@@ -2,6 +2,12 @@ CREATE DATABASE Traumato;
 
 USE Traumato;
 
+/* Heroku ClearDB database
+
+USE heroku_b36365ebf01a860;
+
+*/
+
 CREATE TABLE Utilisateur(
     id int not null auto_increment,
     username varchar(255),
