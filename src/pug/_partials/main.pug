@@ -2,8 +2,8 @@ main.main
     .main__header 
         h2.main__title Patients
         form(action="php/logout.php", method="POST").main__user 
-                label(for="logout")#username.main__username
-                    | John Doe
+                label(for="logout", tooltip="click to logout")#username.main__username
+                    | <?php echo $_SESSION['nom']." (".$_SESSION["user"].")"; ?>
                 button#logout.main__username-logout(type="submit" name="logout" value="logout")
                     ion-icon(name="log-out-outline")
 
@@ -23,12 +23,19 @@ main.main
                         th Date Rendez-vous
                         th Action
                 tbody.main__table-body
-                    tr.main__table-row
-                        td John Doe
-                        td May 26, 2019
-                        td TSPT
-                        td May 26, 2019
-                        td 
-                            button(type="button", id="modifier").btn.btn--edit Modifier
-                            button(type="button", id="modifier").btn.btn--delete Supprimer
-
+                .
+                    <?php
+                        require "php/connexion.php";
+                        $sql = "SELECT * FROM Utilisateur join rdv on rdv.utilisateur_id = utilisateur.id where role='patient'";
+                        $result = mysqli_query($conn, $sql);
+                        while($row = mysqli_fetch_assoc($result)){
+                            echo "tr.main__table-row";
+                                echo "td".$row['nom']." ".$row['prenom'];
+                                echo "td".$row['date_naissance'];
+                                echo "td".$row['maladie'];
+                                echo "td".$row['date_rdv'];
+                                echo "td";
+                                    echo 'button(type="button", id="modifier").btn.btn--edit Modifier';
+                                    echo 'button(type="button", id="supprimer").btn.btn--delete Supprimer';
+                        }
+                    ?>

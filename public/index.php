@@ -57,7 +57,7 @@
               <h3 class="card__title">Crée Patient</h3>
             </div>
             <div class="card__form">
-              <form class="form" method="POST" action="php/reservation.php">
+              <form class="form" method="POST" action="">
                 <div class="form__group form__group--field">
                   <div class="form__group form__group--half">
                     <label class="form__label" for="nom">Nom *</label>
@@ -99,7 +99,30 @@
               </form>
             </div>
           </div>
-        </div>
+        </div><?php
+            require "php/connexion.php";
+        
+            if (isset($_POST['hero-form'])) {
+                $nom = mysqli_real_escape_string($conn, $_POST['nom']);
+                $prenom = mysqli_real_escape_string($conn, $_POST['prenom']);
+                $tele = mysqli_real_escape_string($conn, $_POST['tele']);
+                $email = mysqli_real_escape_string($conn, $_POST['email']);
+                $date_naissance = mysqli_real_escape_string($conn, $_POST['dn']);
+                $maladie = mysqli_real_escape_string($conn, $_POST['maladie']);
+                $date_rendezvous = mysqli_real_escape_string($conn, $_POST['rdv']);
+        
+                $sql_utilisateur = "INSERT INTO utilisateur (nom, prenom, telephone, email, date_naissance, role) VALUES ('$nom', '$prenom', '$tele', '$email', '$date_naissance', 'patient')";
+        
+                $sql_rdv = "INSERT INTO rdv(date_rdv, maladie, utilisateur_id) VALUES ('$date_rendezvous', '$maladie', LAST_INSERT_ID())";
+        
+                if ($conn->query($sql_utilisateur) === TRUE && $conn->query($sql_rdv) === TRUE) {
+                    echo "<script>alert('Votre demande a bien été prise en compte, nous vous recontacterons dans les plus brefs délais.');</script>";
+                } else {
+                    echo "<script>alert('Erreur lors de la création de votre compte, veuillez réessayer.');console.log('Error: '". $sql ."'<br>'". $conn->error.");</script>";
+                }
+            }
+            $conn->close();
+        ?>
       </div>
     </section>
     <section class="location" id="location">
@@ -157,17 +180,11 @@
                   }
               }
           ?>
-          
         </div>
       </div>
     </section>
-    <script src="./assets/js/contact.js"></script>
     <footer class="footer">
       <p class="footer__text">Made With ❤️ By Mohammed-Aymen Benadra<br>©Traumato - All rights reserved.</p>
     </footer>
-    <script src="./assets/js/contact.js"></script>
-    <!-- map script-->
-    <!-- script(src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap&libraries=&v=weekly" async)-->
-    <!-- script(src="./js/location.min.js") -->
   </body>
 </html>

@@ -62,16 +62,21 @@
         </div>
       </div>
     </section><?php
+        //- session_start();
+        //- if (isset($_SESSION['user'])){
+        //-     header('Location: ./dashboard.php');
+        //- }
+    
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             require "php/connexion.php";
-            session_start();
+            
             // username and password sent from form 
             //- $role = mysqli_real_escape_string($conn, $_POST['role']);
             $username = mysqli_real_escape_string($conn, $_POST['username']);
             $password = mysqli_real_escape_string($conn, $_POST['password']);
     
-            //- $sql = "SELECT id FROM utilisateur WHERE role = '$role' and username = '$username' and password = '$password'";
-            $sql = "SELECT id FROM utilisateur WHERE username = '$username' and password = '$password'";
+            //- $sql = "SELECT * FROM utilisateur WHERE role = '$role' and username = '$username' and password = '$password'";
+            $sql = "SELECT * FROM utilisateur WHERE username = '$username' and password = '$password' LIMIT 1";
     
             $result = mysqli_query($conn, $sql);
             $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
@@ -80,9 +85,16 @@
     
             // If result matched $role, $username and $password, table row must be 1 row
             if ($count == 1) {
+                session_start();
                 $_SESSION['user'] = $username;
+                $_SESSION['nom'] = $row['prenom']." ".$row['nom'];
+                $_SESSION['specialite'] = $row['specialite'];
+                $_SESSION['email'] = $row['email'];
+                $_SESSION['tele'] = $row['telephone'];
+                //- print_r($_SESSION);
+                //- echo "<script>alert('Username ou mot de passe correct!(".$_SESSION['nom']." | ".$password.").')</script>";
     
-                header("location: dashboard.php");
+                header("location: ./dashboard.php");
             } else {
                 echo "<script>alert('Username ou mot de passe incorrect!')</script>";
             }

@@ -79,6 +79,5 @@
         </div>
       </div>
     </div>
-    <script src="js/manage.js"></script>
   </body>
 </html>

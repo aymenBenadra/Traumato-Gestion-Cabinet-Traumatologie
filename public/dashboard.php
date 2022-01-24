@@ -34,8 +34,9 @@
   </head>
   <body>
     <?php
+        session_start();
         if(!isset($_SESSION['user'])){
-            header('Location: ./index.html');
+            header('Location: ./index.php');
         }
     ?>
     <div class="container">
@@ -56,7 +57,7 @@
         <div class="main__header"> 
           <h2 class="main__title">Patients</h2>
           <form class="main__user" action="php/logout.php" method="POST"> 
-            <label class="main__username" for="logout" id="username">John Doe</label>
+            <label class="main__username" for="logout" tooltip="click to logout" id="username"><?php echo $_SESSION['nom']." (".$_SESSION["user"].")"; ?></label>
             <button class="main__username-logout" id="logout" type="submit" name="logout" value="logout">
               <ion-icon name="log-out-outline"></ion-icon>
             </button>
@@ -80,18 +81,21 @@
                   <th>Action</th>
                 </tr>
               </thead>
-              <tbody class="main__table-body">
-                <tr class="main__table-row">
-                  <td>John Doe</td>
-                  <td>May 26, 2019</td>
-                  <td>TSPT</td>
-                  <td>May 26, 2019</td>
-                  <td> 
-                    <button class="btn btn--edit" type="button" id="modifier">Modifier</button>
-                    <button class="btn btn--delete" type="button" id="modifier">Supprimer</button>
-                  </td>
-                </tr>
-              </tbody>
+              <tbody class="main__table-body"></tbody><?php
+                  require "php/connexion.php";
+                  $sql = "SELECT * FROM Utilisateur join rdv on rdv.utilisateur_id = utilisateur.id where role='patient'";
+                  $result = mysqli_query($conn, $sql);
+                  while($row = mysqli_fetch_assoc($result)){
+                      echo "tr.main__table-row";
+                          echo "td".$row['nom']." ".$row['prenom'];
+                          echo "td".$row['date_naissance'];
+                          echo "td".$row['maladie'];
+                          echo "td".$row['date_rdv'];
+                          echo "td";
+                              echo 'button(type="button", id="modifier").btn.btn--edit Modifier';
+                              echo 'button(type="button", id="supprimer").btn.btn--delete Supprimer';
+                  }
+              ?>
             </table>
           </div>
         </div>
