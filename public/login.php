@@ -62,10 +62,10 @@
         </div>
       </div>
     </section><?php
-        //- session_start();
-        //- if (isset($_SESSION['user'])){
-        //-     header('Location: ./dashboard.php');
-        //- }
+        session_start();
+        if (isset($_SESSION['user'])){
+            header('Location: ./dashboard.php');
+        }
     
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             require "php/connexion.php";
