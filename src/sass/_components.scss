@@ -47,6 +47,20 @@ li {
       background-color: darken($color-delete, 10%);
     }
   }
+
+  &--open-navbar {
+    background-color: $color-main-bg;
+    color: $color-text;
+    border: 2px solid $color-text;
+    position: absolute;
+    padding: 5px 7px;
+    top: 10px;
+    left: 10px;
+
+    &:hover {
+      background-color: darken($color-main-bg, 10%);
+    }
+  }
 }
 
 .form {

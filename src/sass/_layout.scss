@@ -210,7 +210,8 @@
   padding: 1rem;
 }
 
-.login {
+.login,
+.manage {
   height: 100vh;
   width: auto;
   display: flex;
@@ -231,7 +232,7 @@
   display: flex;
 
   .sidenav {
-    width: 20%;
+    width: clamp(200px, 15vw, 300px);
     height: 100vh;
     background-color: $color-text;
     color: $color-light;
@@ -242,7 +243,7 @@
 
     &__header {
       width: 100%;
-      height: 20%;
+      height: 20vh;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -264,7 +265,7 @@
 
     &__menu {
       width: 100%;
-      height: 40%;
+      height: 40vh;
       display: flex;
       flex-direction: column;
       justify-content: space-evenly;
@@ -301,7 +302,7 @@
   }
 
   .main {
-    width: 80%;
+    width: 85vw;
     height: 100vh;
     background-color: $color-main-bg;
     color: $color-text;
@@ -310,6 +311,7 @@
     justify-content: space-evenly;
     align-items: center;
     text-align: center;
+    position: relative;
 
     &__header {
       width: 90%;
@@ -365,10 +367,16 @@
         align-items: center;
         text-align: left;
       }
+
+      &-body {
+        width: clamp(300px, 90%, 100%);
+
+        overflow-x: scroll;
+      }
     }
 
     &__table {
-      width: 100%;
+      width: clamp(90%, 100%);
       height: 80%;
       // border: 0.2rem solid $color-text-second;
       text-align: center;
@@ -377,6 +385,10 @@
       td {
         border: 0.1rem solid $color-text-second;
         padding: 1rem;
+      }
+
+      tr:nth-child(even) {
+        background-color: #f2f2f2;
       }
     }
   }

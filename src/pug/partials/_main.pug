@@ -1,0 +1,70 @@
+main.main 
+    .main__header 
+        button.btn.btn--open-navbar(onclick="toggleNavbar()") &#9776;
+        h2.main__title Patients
+        form(action="", method="POST").main__user 
+                label(for="logout", tooltip="click to logout")#username.main__username
+                    | <?php echo $_SESSION['nom']." (".$_SESSION["user"].")"; ?>
+                button#logout.main__username-logout(type="submit" name="logout" value="logout")
+                    ion-icon(name="log-out-outline")
+                .
+                    <?php
+
+                        if (isset($_POST['logout'])) {
+                            session_start();
+                            // remove all session variables
+                            session_unset();
+                            // destroy the session
+                            session_destroy();
+                            header("location: ./login.php");
+                        }
+                    ?>
+
+    .main__content
+        .main__content-header
+            h3.main__subtitle Tous les Patients 
+            a(href="./create.php") 
+                button.btn
+                    ion-icon(name="add-circle-outline")
+                    | Ajouter Patient
+        .main__content-body
+            table.main__table
+                thead.main__table-head
+                    tr.main__table-row
+                        th Nom Complete
+                        th Date de Naissance
+                        th Telephone
+                        th Email
+                        th Maladie
+                        th Date Rendez-vous
+                        th Action
+                tbody.main__table-body
+                .
+                    <?php
+                        require "php/connexion.php";
+                        $sql = "SELECT * FROM Utilisateur as u join rdv on rdv.utilisateur_id = u.id where role='patient'";
+                        $result = mysqli_query($conn, $sql);
+                        while($row = mysqli_fetch_assoc($result)){
+                            echo "<tr class='main__table-row'>";
+                                echo "<td>".$row['nom']." ".$row['prenom']."</td>";
+                                echo "<td>".$row['date_naissance']."</td>";
+                                echo "<td>".$row['telephone']."</td>";
+                                echo "<td>".$row['email']."</td>";
+                                echo "<td>".$row['maladie']."</td>";
+                                echo "<td>".$row['date_rdv']."</td>";
+                                echo "<td>";
+                                    echo "<form action='./modify.php' method='POST'>";
+                                        echo "<input type='hidden' name='id' value='".$row['utilisateur_id']."'/>";
+                                        echo "<input type='hidden' name='nom' value='".$row['nom']."'/>";
+                                        echo "<input type='hidden' name='prenom' value='".$row['prenom']."' />";
+                                        echo "<input type='hidden' name='tele' value='".$row['telephone']."' />";
+                                        echo "<input type='hidden' name='email' value='".$row['email']."' />";
+                                        echo "<input type='hidden' name='dn' value='".$row['date_naissance']."' />";
+                                        echo "<input type='hidden' name='maladie' value='".$row['maladie']."' />";
+                                        echo "<input type='hidden' name='rdv' value='".$row['date_rdv']."' />";
+                                        echo "<button class='btn btn--edit' id='modifier' type='submit' name='action' value='modify'><ion-icon name='brush-outline'></ion-icon></button>";
+                                    echo "</form>";
+                                    echo '<button type="button" id="supprimer" class="btn btn--delete"><ion-icon name="trash-outline"></ion-icon></button>';
+                                echo "</td>";
+                        }
+                    ?>
