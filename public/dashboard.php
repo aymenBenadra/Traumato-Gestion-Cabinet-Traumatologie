@@ -41,7 +41,8 @@
     ?>
     <div class="container">
       <div class="sidenav">
-        <div class="sidenav__header"><img class="sidenav__logo" src="./assets/logo-light.png" alt="Traumato">
+        <div class="sidenav__header">
+          <button class="btn btn--close-navbar" onclick="toggleNavbar()">&times;</button><img class="sidenav__logo" src="./assets/logo-light.png" alt="Traumato">
           <div class="sidenav__title">Traumato</div>
         </div>
         <div class="sidenav__menu">
@@ -55,20 +56,32 @@
       </div>
       <main class="main"> 
         <div class="main__header"> 
+          <button class="btn btn--open-navbar" onclick="toggleNavbar()">&#9776;</button>
           <h2 class="main__title">Patients</h2>
-          <form class="main__user" action="php/logout.php" method="POST"> 
+          <form class="main__user" action="" method="POST"> 
             <label class="main__username" for="logout" tooltip="click to logout" id="username"><?php echo $_SESSION['nom']." (".$_SESSION["user"].")"; ?></label>
             <button class="main__username-logout" id="logout" type="submit" name="logout" value="logout">
               <ion-icon name="log-out-outline"></ion-icon>
-            </button>
+            </button><?php
+            
+                if (isset($_POST['logout'])) {
+                    session_start();
+                    // remove all session variables
+                    session_unset();
+                    // destroy the session
+                    session_destroy();
+                    header("location: ./login.php");
+                }
+            ?>
+            
           </form>
         </div>
         <div class="main__content">
           <div class="main__content-header">
-            <h3 class="main__subtitle">Tous les Patients </h3>
-            <button class="btn">
-              <ion-icon name="add-circle-outline"></ion-icon>Ajouter Patient
-            </button>
+            <h3 class="main__subtitle">Tous les Patients </h3><a href="./create.php"> 
+              <button class="btn">
+                <ion-icon name="add-circle-outline"></ion-icon>Ajouter Patient
+              </button></a>
           </div>
           <div class="main__content-body">
             <table class="main__table">
@@ -76,6 +89,8 @@
                 <tr class="main__table-row">
                   <th>Nom Complete</th>
                   <th>Date de Naissance</th>
+                  <th>Telephone</th>
+                  <th>Email</th>
                   <th>Maladie</th>
                   <th>Date Rendez-vous</th>
                   <th>Action</th>
@@ -83,17 +98,30 @@
               </thead>
               <tbody class="main__table-body"></tbody><?php
                   require "php/connexion.php";
-                  $sql = "SELECT * FROM Utilisateur join rdv on rdv.utilisateur_id = utilisateur.id where role='patient'";
+                  $sql = "SELECT * FROM Utilisateur as u join rdv on rdv.utilisateur_id = u.id where role='patient'";
                   $result = mysqli_query($conn, $sql);
                   while($row = mysqli_fetch_assoc($result)){
-                      echo "tr.main__table-row";
-                          echo "td".$row['nom']." ".$row['prenom'];
-                          echo "td".$row['date_naissance'];
-                          echo "td".$row['maladie'];
-                          echo "td".$row['date_rdv'];
-                          echo "td";
-                              echo 'button(type="button", id="modifier").btn.btn--edit Modifier';
-                              echo 'button(type="button", id="supprimer").btn.btn--delete Supprimer';
+                      echo "<tr class='main__table-row'>";
+                          echo "<td>".$row['nom']." ".$row['prenom']."</td>";
+                          echo "<td>".$row['date_naissance']."</td>";
+                          echo "<td>".$row['telephone']."</td>";
+                          echo "<td>".$row['email']."</td>";
+                          echo "<td>".$row['maladie']."</td>";
+                          echo "<td>".$row['date_rdv']."</td>";
+                          echo "<td>";
+                              echo "<form action='./modify.php' method='POST'>";
+                                  echo "<input type='hidden' name='id' value='".$row['utilisateur_id']."'/>";
+                                  echo "<input type='hidden' name='nom' value='".$row['nom']."'/>";
+                                  echo "<input type='hidden' name='prenom' value='".$row['prenom']."' />";
+                                  echo "<input type='hidden' name='tele' value='".$row['telephone']."' />";
+                                  echo "<input type='hidden' name='email' value='".$row['email']."' />";
+                                  echo "<input type='hidden' name='dn' value='".$row['date_naissance']."' />";
+                                  echo "<input type='hidden' name='maladie' value='".$row['maladie']."' />";
+                                  echo "<input type='hidden' name='rdv' value='".$row['date_rdv']."' />";
+                                  echo "<button class='btn btn--edit' id='modifier' type='submit' name='action' value='modify'><ion-icon name='brush-outline'></ion-icon></button>";
+                              echo "</form>";
+                              echo '<button type="button" id="supprimer" class="btn btn--delete"><ion-icon name="trash-outline"></ion-icon></button>';
+                          echo "</td>";
                   }
               ?>
             </table>
@@ -103,5 +131,18 @@
     </div>
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script>
+      /* Set the width of the sidebar to 250px and the left margin of the page content to 250px */
+      function openNav() {
+      document.getElementById("mySidebar").style.width = "250px";
+      document.getElementById("main").style.marginLeft = "250px";
+      }
+      
+      /* Set the width of the sidebar to 0 and the left margin of the page content to 0 */
+      function closeNav() {
+      document.getElementById("mySidebar").style.width = "0";
+      document.getElementById("main").style.marginLeft = "0";
+      }
+    </script>
   </body>
 </html>
