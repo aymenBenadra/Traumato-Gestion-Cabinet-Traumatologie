@@ -49,7 +49,6 @@ block content
 
                 // If result matched $role, $username and $password, table row must be 1 row
                 if ($count == 1) {
-                    session_start();
                     $_SESSION['user'] = $username;
                     $_SESSION['nom'] = $row['prenom']." ".$row['nom'];
                     $_SESSION['specialite'] = $row['specialite'];

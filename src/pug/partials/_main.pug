@@ -1,6 +1,6 @@
 main.main 
     .main__header 
-        button.btn.btn--open-navbar(onclick="toggleNavbar()") &#9776;
+        //- button.btn.btn--open-navbar(onclick="toggleNavbar()") &#9776;
         h2.main__title Patients
         form(action="", method="POST").main__user 
                 label(for="logout", tooltip="click to logout")#username.main__username
@@ -9,7 +9,6 @@ main.main
                     ion-icon(name="log-out-outline")
                 .
                     <?php
-
                         if (isset($_POST['logout'])) {
                             session_start();
                             // remove all session variables
@@ -17,6 +16,16 @@ main.main
                             // destroy the session
                             session_destroy();
                             header("location: ./login.php");
+                        }
+                        if (isset($_POST['delete'])){
+                            $id = mysqli_real_escape_string($conn, $_POST['id']);
+                            $sql = "DELETE FROM Utilisateur WHERE id = ".$id;
+
+                            if ($conn->query($sql) === TRUE) {
+                                echo("<script>alert('Supprimer avec succés!');</script>");
+                            } else {
+                                echo("<script>alert('Erreur lors de la suppression de compte, veuillez réessayer.');console.log('Error: '". $sql ."'<br>'". $conn->error.");</script>");
+                            }
                         }
                     ?>
 
@@ -41,10 +50,9 @@ main.main
                 tbody.main__table-body
                 .
                     <?php
-                        require "php/connexion.php";
                         $sql = "SELECT * FROM Utilisateur as u join rdv on rdv.utilisateur_id = u.id where role='patient'";
                         $result = mysqli_query($conn, $sql);
-                        while($row = mysqli_fetch_assoc($result)){
+                        while($row = mysqli_fetch_assoc($result)):
                             echo "<tr class='main__table-row'>";
                                 echo "<td>".$row['nom']." ".$row['prenom']."</td>";
                                 echo "<td>".$row['date_naissance']."</td>";
@@ -64,7 +72,10 @@ main.main
                                         echo "<input type='hidden' name='rdv' value='".$row['date_rdv']."' />";
                                         echo "<button class='btn btn--edit' id='modifier' type='submit' name='action' value='modify'><ion-icon name='brush-outline'></ion-icon></button>";
                                     echo "</form>";
-                                    echo '<button type="button" id="supprimer" class="btn btn--delete"><ion-icon name="trash-outline"></ion-icon></button>';
+                                    echo "<form action='' method='POST' onsubmit='return confirm(`Are you sure?`);'>";
+                                        echo "<input type='hidden' name='id' value='".$row['utilisateur_id']."'/>";
+                                        echo "<button type='submit' id='supprimer' class='btn btn--delete' name='delete' value='delete'><ion-icon name='trash-outline'></ion-icon></button>";
+                                    echo "</form>";
                                 echo "</td>";
-                        }
+                        endwhile;
                     ?>

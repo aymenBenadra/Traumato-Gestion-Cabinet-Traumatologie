@@ -34,6 +34,7 @@
   </head>
   <body>
     <?php
+        require "php/connexion.php";
         session_start();
         if(!isset($_SESSION['user'])){
             header('Location: ./index.php');
@@ -41,8 +42,7 @@
     ?>
     <div class="container">
       <div class="sidenav">
-        <div class="sidenav__header">
-          <button class="btn btn--close-navbar" onclick="toggleNavbar()">&times;</button><img class="sidenav__logo" src="./assets/logo-light.png" alt="Traumato">
+        <div class="sidenav__header"><img class="sidenav__logo" src="./assets/logo-light.png" alt="Traumato">
           <div class="sidenav__title">Traumato</div>
         </div>
         <div class="sidenav__menu">
@@ -56,14 +56,12 @@
       </div>
       <main class="main"> 
         <div class="main__header"> 
-          <button class="btn btn--open-navbar" onclick="toggleNavbar()">&#9776;</button>
           <h2 class="main__title">Patients</h2>
           <form class="main__user" action="" method="POST"> 
             <label class="main__username" for="logout" tooltip="click to logout" id="username"><?php echo $_SESSION['nom']." (".$_SESSION["user"].")"; ?></label>
             <button class="main__username-logout" id="logout" type="submit" name="logout" value="logout">
               <ion-icon name="log-out-outline"></ion-icon>
             </button><?php
-            
                 if (isset($_POST['logout'])) {
                     session_start();
                     // remove all session variables
@@ -71,6 +69,16 @@
                     // destroy the session
                     session_destroy();
                     header("location: ./login.php");
+                }
+                if (isset($_POST['delete'])){
+                    $id = mysqli_real_escape_string($conn, $_POST['id']);
+                    $sql = "DELETE FROM Utilisateur WHERE id = ".$id;
+            
+                    if ($conn->query($sql) === TRUE) {
+                        echo("<script>alert('Supprimer avec succés!');</script>");
+                    } else {
+                        echo("<script>alert('Erreur lors de la suppression de compte, veuillez réessayer.');console.log('Error: '". $sql ."'<br>'". $conn->error.");</script>");
+                    }
                 }
             ?>
             
@@ -97,10 +105,9 @@
                 </tr>
               </thead>
               <tbody class="main__table-body"></tbody><?php
-                  require "php/connexion.php";
                   $sql = "SELECT * FROM Utilisateur as u join rdv on rdv.utilisateur_id = u.id where role='patient'";
                   $result = mysqli_query($conn, $sql);
-                  while($row = mysqli_fetch_assoc($result)){
+                  while($row = mysqli_fetch_assoc($result)):
                       echo "<tr class='main__table-row'>";
                           echo "<td>".$row['nom']." ".$row['prenom']."</td>";
                           echo "<td>".$row['date_naissance']."</td>";
@@ -120,9 +127,12 @@
                                   echo "<input type='hidden' name='rdv' value='".$row['date_rdv']."' />";
                                   echo "<button class='btn btn--edit' id='modifier' type='submit' name='action' value='modify'><ion-icon name='brush-outline'></ion-icon></button>";
                               echo "</form>";
-                              echo '<button type="button" id="supprimer" class="btn btn--delete"><ion-icon name="trash-outline"></ion-icon></button>';
+                              echo "<form action='' method='POST' onsubmit='return confirm(`Are you sure?`);'>";
+                                  echo "<input type='hidden' name='id' value='".$row['utilisateur_id']."'/>";
+                                  echo "<button type='submit' id='supprimer' class='btn btn--delete' name='delete' value='delete'><ion-icon name='trash-outline'></ion-icon></button>";
+                              echo "</form>";
                           echo "</td>";
-                  }
+                  endwhile;
               ?>
             </table>
           </div>

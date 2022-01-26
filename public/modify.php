@@ -38,7 +38,6 @@
         if(!isset($_SESSION['user'])){
             header('Location: ./login.php');
         }
-        print_r($_POST);
     ?>
     <section class="manage"> <a href="./dashboard.php">
         <button class="btn btn--secondary btn--float" type="button">&larr; Reteur à votre Dashboard</button></a>
@@ -48,6 +47,7 @@
         </div>
         <div class="card__form">
           <form class="form" method="POST" action="">
+            <input type="hidden" name="id" value="<?=$_POST['id']?>">
             <div class="form__group form__group--field">
               <div class="form__group form__group--half">
                 <label class="form__label" for="nom">Nom *</label>
@@ -101,13 +101,12 @@
             $maladie = mysqli_real_escape_string($conn, $_POST['maladie']);
             $date_rendezvous = mysqli_real_escape_string($conn, $_POST['rdv']);
     
-            $sql_utilisateur = "UPDATE `utilisateur` SET `nom`='".$nom."',`prenom`='".$prenom."',`email`='".$email."',`telephone`='".$tele."',`date_naissance`='".$date_naissance."' WHERE id = '".$id."'";
+            $sql_utilisateur = "UPDATE `utilisateur` SET `nom`='".$nom."',`prenom`='".$prenom."',`email`='".$email."',`telephone`='".$tele."',`date_naissance`='".$date_naissance."' WHERE id = ".$id;
     
-            $sql_rdv = "UPDATE `rdv` SET `date_rdv`='".$date_rendezvous."',`maladie`='".$maladie."' WHERE utilisateur_id = '".$id."'";
+            $sql_rdv = "UPDATE `rdv` SET `date_rdv`='".$date_rendezvous."',`maladie`='".$maladie."' WHERE utilisateur_id = ".$id;
     
             if ($conn->query($sql_utilisateur) === TRUE && $conn->query($sql_rdv) === TRUE) {
                 echo "<script>alert('Changed Successfully!');</script>";
-                header("Location: ./dashboard.php");
             } else {
                 echo "<script>alert('Erreur lors de la création de votre compte, veuillez réessayer.');console.log('Error: '". $sql ."'<br>'". $conn->error.");</script>";
             }

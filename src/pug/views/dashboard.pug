@@ -3,6 +3,7 @@ extends _template.pug
 block content
     .
         <?php
+            require "php/connexion.php";
             session_start();
             if(!isset($_SESSION['user'])){
                 header('Location: ./index.php');

@@ -7,7 +7,6 @@ block content
             if(!isset($_SESSION['user'])){
                 header('Location: ./login.php');
             }
-            print_r($_POST);
         ?>
     section.manage  
         a(href="./dashboard.php")
@@ -17,6 +16,7 @@ block content
                 h3.card__title Crée Patient
             .card__form
                 form(method="POST", action="").form
+                    input(type="hidden", name="id", value!="<?=$_POST['id']?>")
                     .form__group.form__group--field
                         .form__group.form__group--half
                             label.form__label(for="nom") Nom *
@@ -59,13 +59,12 @@ block content
                 $maladie = mysqli_real_escape_string($conn, $_POST['maladie']);
                 $date_rendezvous = mysqli_real_escape_string($conn, $_POST['rdv']);
 
-                $sql_utilisateur = "UPDATE `utilisateur` SET `nom`='".$nom."',`prenom`='".$prenom."',`email`='".$email."',`telephone`='".$tele."',`date_naissance`='".$date_naissance."' WHERE id = '".$id."'";
+                $sql_utilisateur = "UPDATE `utilisateur` SET `nom`='".$nom."',`prenom`='".$prenom."',`email`='".$email."',`telephone`='".$tele."',`date_naissance`='".$date_naissance."' WHERE id = ".$id;
 
-                $sql_rdv = "UPDATE `rdv` SET `date_rdv`='".$date_rendezvous."',`maladie`='".$maladie."' WHERE utilisateur_id = '".$id."'";
+                $sql_rdv = "UPDATE `rdv` SET `date_rdv`='".$date_rendezvous."',`maladie`='".$maladie."' WHERE utilisateur_id = ".$id;
 
                 if ($conn->query($sql_utilisateur) === TRUE && $conn->query($sql_rdv) === TRUE) {
                     echo "<script>alert('Changed Successfully!');</script>";
-                    header("Location: ./dashboard.php");
                 } else {
                     echo "<script>alert('Erreur lors de la création de votre compte, veuillez réessayer.');console.log('Error: '". $sql ."'<br>'". $conn->error.");</script>";
                 }
