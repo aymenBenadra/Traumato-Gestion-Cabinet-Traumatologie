@@ -54,7 +54,7 @@
         <div class="hero__right-content">
           <div class="card">
             <div class="card__header">
-              <h3 class="card__title">Crée Patient</h3>
+              <h3 class="card__title">Prendre Rendez-vous</h3>
             </div>
             <div class="card__form">
               <form class="form" method="POST" action="">
