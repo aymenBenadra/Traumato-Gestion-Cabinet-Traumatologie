@@ -10,8 +10,6 @@
   - [Objectif du projet](#objectif-du-projet)
   - [Périmètre des clients](#périmètre-des-clients)
   - [Maquettage](#maquettage)
-    - [Charte Graphique](#charte-graphique)
-    - [Maquette et Prototype](#maquette-et-prototype)
   - [Choix Technologique](#choix-technologique)
     - [Planning](#planning)
     - [Modelisation](#modelisation)
@@ -40,37 +38,7 @@ Nous nous concentrons sur les clients Maroccain qui ont 20+ ans et besoin d'un *
 
 ## Maquettage
 
-### Charte Graphique
-
-![Charte Graphique](../Maquettage/Charte-graphique.png)
-
-### Maquette et Prototype
-
 Pour le design complete aller à [Figma](https://www.figma.com/file/7e57saMxBWCRzmXiFteado/Traumato---Gestion-Cabinet-Traumatologie?node-id=0%3A1).
-
-- Page Home:
-
-![Home Desktop](../Maquettage/Desktop.png)
-
----
-
-![Home Mobile](../Maquettage/mobile.png)
-
-- Page Connexion:
-
-![Connexion Medecin](../Maquettage/Connexion%20[Medecin].png)
-
----
-
-![Connexion Admin](../Maquettage/Connexion%20[Admin].png)
-
-- Page Dashboard:
-
-![Dashboard Medecin](../Maquettage/Dashboard%20[Medecin].png)
-
----
-
-![Dashboard Admin](../Maquettage/Dashboard%20[Admin].png)
 
 ## Choix Technologique
 
